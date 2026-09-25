@@ -12,8 +12,8 @@ Route::get('/login', [LoginController::class, 'view'])->name('login')->middlewar
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 
 // Register
-Route::get('/register', [RegisterController::class, 'view'])->name('register')->middleware('guest');
-Route::post('/register', [RegisterController::class, 'register'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'view'])->name('register')->middleware(['guest', 'registration.enabled']);
+Route::post('/register', [RegisterController::class, 'register'])->middleware(['guest', 'registration.enabled']);
 
 // Verify Email
 Route::controller(VerifyEmailController::class)->prefix('/email')->name('verification.')->middleware(['auth', 'not.verified'])

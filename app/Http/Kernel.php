@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Modules\Auth\App\Http\Middleware\EnsureRegistrationEnabled;
 use Modules\RedirectManager\App\Http\Middleware\RedirectRequests;
 use Modules\UserActivity\App\Http\Middleware\CheckIpChange;
 use Modules\UserActivity\App\Http\Middleware\TrackUserRequests;
@@ -72,5 +73,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'not.verified' => \Modules\Auth\App\Http\Middleware\EnsureEmailIsNotVerified::class,
+        'registration.enabled' => EnsureRegistrationEnabled::class,
     ];
 }

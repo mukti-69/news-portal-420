@@ -65,10 +65,12 @@
         <i class="icon-refresh font-lg"></i>
         بازیابی رمز عبور
     </a>
-    <a href="{{ route('register') }}" class="btn btn-default btn-block">
-        <i class="icon-user-follow font-lg"></i>
-        حساب ندارید؟ ثبت نام کنید!
-    </a>
+    @if(config('auth.registration_enabled'))
+        <a href="{{ route('register') }}" class="btn btn-default btn-block">
+            <i class="icon-user-follow font-lg"></i>
+            حساب ندارید؟ ثبت نام کنید!
+        </a>
+    @endif
 @endsection
 
 @push('scripts')
