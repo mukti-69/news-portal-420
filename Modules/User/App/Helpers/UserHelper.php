@@ -32,11 +32,27 @@ class UserHelper
 
     public static function createAdminUser(): Model
     {
+        $email = config('user.admin_email');
+        $password = config('user.admin_password');
+
+        if (empty($email) || empty($password)) {
+            throw new UserCreationFailedException(
+                'Cannot create the admin account: ADMIN_EMAIL and ADMIN_PASSWORD must both be set in .env. '.
+                'No default credentials are used.'
+            );
+        }
+
+        if (strlen($password) < 8) {
+            throw new UserCreationFailedException(
+                'Cannot create the admin account: ADMIN_PASSWORD must be at least 8 characters.'
+            );
+        }
+
         $attributes = collect([
-            'full_name' => config('user.admin_full_name', 'test'),
-            'username' => config('user.admin_username', 'test'),
-            'email' => config('user.admin_email'),
-            'password' => Hash::make(config('user.admin_password')),
+            'full_name' => config('user.admin_full_name', 'Admin'),
+            'username' => config('user.admin_username', 'admin'),
+            'email' => $email,
+            'password' => Hash::make($password),
             'email_verified_at' => now(),
         ]);
         $user = User::query()->firstOrCreate(

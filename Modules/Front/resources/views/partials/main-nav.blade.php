@@ -176,9 +176,11 @@
                 <div class="nav-login">
                     <a href="{{ route('login') }}" id="login"><i class="fa fa-sign-in" title="ورود به حساب کاربری"></i></a>
                 </div>
-                <div class="nav-register">
-                    <a href="{{ route('register') }}" id="register"><i class="fa fa-user-plus" title="ثبت نام"></i></a>
-                </div>
+                @if(config('auth.registration_enabled'))
+                    <div class="nav-register">
+                        <a href="{{ route('register') }}" id="register"><i class="fa fa-user-plus" title="ثبت نام"></i></a>
+                    </div>
+                @endif
             @endguest
 
             @auth
