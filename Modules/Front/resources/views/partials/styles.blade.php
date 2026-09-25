@@ -18,4 +18,6 @@
 <link rel="stylesheet" href="{{ asset('home/css/colorbox.css') }}">
 <!-- Custom -->
 <link rel="stylesheet" href="{{ asset('home/css/custom-style.css') }}">
+<!-- Bengali font -->
+<link rel="stylesheet" href="{{ asset('home/css/bn-font.css') }}">
 

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" class="rtl">
+<html lang="bn" dir="rtl" class="rtl">
+<!-- TODO(bn-localization): admin theme CSS was written for RTL/Persian (relies on
+     the "rtl" class throughout). Left as dir="rtl" for now - flipping to LTR needs a
+     visual pass through this theme's CSS, tracked as a follow-up. -->
 
 <head>
     <title>{{ !empty($title) ? $title . ' | ' . config('app.name') : config('app.name') }}</title>

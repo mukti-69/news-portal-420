@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="bn" dir="rtl">
+<!-- TODO(bn-localization): this theme's CSS was written for RTL/Persian. dir="rtl"
+     is left as-is for now to avoid a blind, unverified layout flip - flipping it to
+     "ltr" needs a visual pass through this template's CSS (float/margin mirroring),
+     tracked as a follow-up. -->
 
 <head>
     <title>{{ !empty($title) ? $title . ' | ' . config('app.name') : config('app.name') }}</title>
