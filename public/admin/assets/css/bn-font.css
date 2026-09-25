@@ -1,0 +1,12 @@
+/* Bengali web font for the Auth (login/register) pages.
+   Loaded after the theme's own CSS so these rules take priority. */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+body,
+input,
+textarea,
+select,
+button {
+    font-family: 'Noto Sans Bengali', Arial, sans-serif !important;
+}

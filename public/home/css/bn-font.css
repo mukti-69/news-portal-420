@@ -1,0 +1,13 @@
+/* Bengali web font for the public site.
+   Loaded after the theme's own CSS (style.css, custom-style.css) so these
+   rules take priority without having to touch those files. */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+
+body,
+input,
+textarea,
+select,
+button {
+    font-family: 'Noto Sans Bengali', Arial, sans-serif !important;
+}

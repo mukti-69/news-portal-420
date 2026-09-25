@@ -12,4 +12,5 @@
 <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet">
 <link href="{{ asset('admin/assets/css/custom-styles.css') }}" rel="stylesheet">
 <link href="{{ asset('admin/assets/css/colors.css') }}" rel="stylesheet">
+<link href="{{ asset('admin/assets/css/bn-font.css') }}" rel="stylesheet">
 <!-- END CSS -->
