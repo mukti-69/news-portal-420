@@ -15,6 +15,11 @@
 
     {!! SEO::generate() !!}
 
+    @if($site_details->adsense_client_id ?? null)
+        {{-- Google AdSense (Auto ads) - only loads when a Publisher/client ID is set in Settings --}}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ $site_details->adsense_client_id }}" crossorigin="anonymous"></script>
+    @endif
+
     @include('front::partials.styles')
 
     @stack('styles')
