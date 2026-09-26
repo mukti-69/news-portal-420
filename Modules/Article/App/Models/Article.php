@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
 use Laravel\Scout\Searchable;
+use Modules\Article\App\Support\VideoEmbedHelper;
 use Modules\Article\Database\Factories\ArticleFactory;
 use Modules\Category\App\Models\Category;
 use Modules\Comment\App\Traits\HasComments;
@@ -47,6 +48,7 @@ class Article extends Model implements Feedable
         'title',
         'slug',
         'body',
+        'video_url',
         'published_at',
         'editor_choice',
         'type',
@@ -89,6 +91,22 @@ class Article extends Model implements Feedable
         $strippedBody = strip_tags($cleanedBody);
 
         return str($strippedBody)->limit($limit);
+    }
+
+    public function hasVideo(): bool
+    {
+        return filled($this->video_url) && $this->embedVideoUrl() !== null;
+    }
+
+    /**
+     * The article's video_url as an embeddable iframe src, or null if it's
+     * empty or isn't a recognized YouTube/Facebook video link. See
+     * VideoEmbedHelper - videos are never uploaded to/stored on this
+     * server, only linked to from YouTube/Facebook.
+     */
+    public function embedVideoUrl(): ?string
+    {
+        return VideoEmbedHelper::toEmbedUrl($this->video_url);
     }
 
     public function getUrl(): string

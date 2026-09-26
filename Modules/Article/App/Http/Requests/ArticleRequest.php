@@ -14,6 +14,16 @@ class ArticleRequest extends FormRequest
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:articles,slug',
             'body' => 'required|string',
+            'video_url' => [
+                'nullable',
+                'url',
+                'max:500',
+                function ($attribute, $value, $fail) {
+                    if (filled($value) && \Modules\Article\App\Support\VideoEmbedHelper::toEmbedUrl($value) === null) {
+                        $fail(__('article::messages.invalid_video_url'));
+                    }
+                },
+            ],
             'published_at' => 'required|date',
             'image' => 'required'.$imageRules,
             'category_id' => 'required|exists:categories,id',
