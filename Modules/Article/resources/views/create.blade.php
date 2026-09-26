@@ -63,6 +63,12 @@
                                 <div class="help-block"></div>
                             </div>
                             <div class="form-group col-lg-6">
+                                <label for="video_url">ভিডিও লিংক (YouTube/Facebook) <small>(ঐচ্ছিক)</small></label>
+                                <input id="video_url" class="form-control" name="video_url" type="url"
+                                       placeholder="https://www.youtube.com/watch?v=..." value="{{ old('video_url') }}" dir="ltr">
+                                <div class="help-block">খবরের সাথে ভিডিও থাকলে YouTube বা Facebook থেকে লিংক কপি করে এখানে বসান।</div>
+                            </div>
+                            <div class="form-group col-lg-6">
                                 <label for="category_id">دسته‌بندی <small>(ضروری)</small></label>
                                 <select id="category_id" class="form-control select2" name="category_id">
                                     <option value="">انتخاب دسته‌بندی</option>
