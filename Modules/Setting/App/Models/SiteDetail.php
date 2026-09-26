@@ -17,6 +17,7 @@ class SiteDetail extends Model
         'description',
         'keywords',
         'footer_text',
+        'adsense_client_id',
     ];
 
     protected static function newFactory(): SiteDetailFactory

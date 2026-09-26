@@ -61,6 +61,14 @@
                                 <textarea id="footer_text" class="form-control" name="footer_text" required>{{ old('footer_text', $siteDetails?->footer_text) }}</textarea>
                             </div>
 
+                            <div class="form-group col-lg-6">
+                                <label for="adsense_client_id">{{ __('setting::site_details.adsense_client_id') }} <small>(ঐচ্ছিক)</small></label>
+                                <input id="adsense_client_id" class="form-control" name="adsense_client_id" type="text"
+                                       placeholder="ca-pub-1234567890123456" dir="ltr"
+                                       value="{{ old('adsense_client_id', $siteDetails?->adsense_client_id) }}">
+                                <div class="help-block">Google AdSense-এ অনুমোদন পেলে সেখান থেকে Publisher ID কপি করে এখানে বসান। খালি রাখলে সাইটে কোনো AdSense বিজ্ঞাপন দেখাবে না।</div>
+                            </div>
+
                             <div class="col-12 d-flex flex-column align-items-center">
                                 <div class="form-group relative col-lg-6">
                                     <label>لوگوی اصلی <small>(ضروری)</small></label>
