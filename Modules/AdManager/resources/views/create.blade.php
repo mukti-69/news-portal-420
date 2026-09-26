@@ -42,20 +42,16 @@
                                 <input id="link" class="form-control" name="link" type="text" required value="{{ old('link') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="published_at">تاریخ انتشار <small>(ضروری)</small></label>
-                                <div class="input-group" id="dtp1">
-                                    <input id="published_at" type="text" class="form-control cursor-pointer" required readonly data-name="dtp1-text" dir="ltr">
-                                    <i class="icon-clock fs-5 input-group-text cursor-pointer"></i>
-                                </div>
-                                <input name="published_at" type="hidden" data-name="dtp1-date">
+                                <label for="published_at">তারিখ প্রকাশ <small>(ضروری)</small></label>
+                                <input id="published_at" name="published_at" type="datetime-local"
+                                       class="form-control" required dir="ltr"
+                                       value="{{ old('published_at') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="expired_at">تاریخ انقضا </label>
-                                <div class="input-group" id="dtp2">
-                                    <input id="expired_at" type="text" class="form-control cursor-pointer" readonly data-name="dtp2-text" dir="ltr">
-                                    <i class="icon-clock fs-5 input-group-text cursor-pointer"></i>
-                                </div>
-                                <input name="expired_at" type="hidden" data-name="dtp2-date">
+                                <label for="expired_at">মেয়াদ শেষের তারিখ</label>
+                                <input id="expired_at" name="expired_at" type="datetime-local"
+                                       class="form-control" dir="ltr"
+                                       value="{{ old('expired_at') }}">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label for="section">مکان قرارگیری</label>
@@ -104,26 +100,7 @@
     <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/fa.js') }}"></script>
     <script src="{{ asset('admin/assets/js/pages/select2.js') }}"></script>
 
-    <script src="{{ asset('admin/assets/plugins/mdsPersianDatetimepicker/dist/js/mds.bs.datetimepicker.js') }}"></script>
     <script>
-        const dtp1Instance = new mds.MdsPersianDateTimePicker(document.getElementById('dtp1'), {
-            targetTextSelector: '[data-name="dtp1-text"]',
-            targetDateSelector: '[data-name="dtp1-date"]',
-            enableTimePicker: true,
-        });
-        @if(old('published_at'))
-        dtp1Instance.setDate(new Date('{{ old('published_at') }}'));
-        @endif
-
-        const dtp2Instance = new mds.MdsPersianDateTimePicker(document.getElementById('dtp2'), {
-            targetTextSelector: '[data-name="dtp2-text"]',
-            targetDateSelector: '[data-name="dtp2-date"]',
-            enableTimePicker: true,
-        });
-        @if(old('expired_at'))
-        dtp2Instance.setDate(new Date('{{ old('expired_at') }}'));
-        @endif
-
         $.validator.setDefaults({
             highlight: function (element) {
                 $(element).closest('.form-group').addClass('has-error').removeClass("has-success");
@@ -147,5 +124,4 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('admin/assets/plugins/select2/dist/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/mdsPersianDatetimepicker/dist/css/mds.bs.datetimepicker.style.css') }}">
 @endpush
