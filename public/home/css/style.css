@@ -1116,8 +1116,8 @@ span.post-comment span {
 	font-size: 11px;
 	padding: 5px 10px;
 	line-height: 100%;
-	float: right;
-	margin: 1.5px 0 0 20px;
+	float: left;
+	margin: 1.5px 20px 0 0;
 }
 
 .trending-bar .post-content,
@@ -1127,7 +1127,7 @@ span.post-comment span {
 
 .owl-carousel.owl-theme.trending-slide .owl-nav {
 	position: absolute;
-	left: 0;
+	right: 0;
 	top: -2.5px;
 	margin: 0;
 }
