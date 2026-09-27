@@ -69,7 +69,7 @@ class ProductionSeeder extends Seeder
                 'keywords' => null,
                 'footer_text' => '© '.date('Y').' '.config('app.name', 'News Site'),
                 'main_logo_id' => ImageHelper::createDefaultImage(configPath: 'common.default_logo.file_path')->id,
-                'second_logo_id' => ImageHelper::createDefaultImage(configPath: 'common.default_logo.file_path')->id,
+                'second_logo_id' => ImageHelper::createDefaultImage(configPath: 'common.default_logo_white.file_path')->id,
                 'favicon_id' => ImageHelper::createDefaultImage(configPath: 'common.default_favicon.file_path')->id,
             ]);
         });

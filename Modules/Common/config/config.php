@@ -15,6 +15,12 @@ return [
         'file_link' => asset('seeders/images/logo.png'),
         'alt_text' => 'Default Logo',
     ],
+    'default_logo_white' => [
+        // White-text variant of the logo, for use on dark backgrounds (e.g. the footer)
+        'file_path' => public_path('seeders/images/logo-white.png'),
+        'file_link' => asset('seeders/images/logo-white.png'),
+        'alt_text' => 'Default Logo (white)',
+    ],
     'default_favicon' => [
         'file_path' => public_path('seeders/images/favicon.ico'),
         'file_link' => asset('seeders/images/favicon.ico'),
