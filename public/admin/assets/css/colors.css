@@ -75,33 +75,33 @@ body, #page-content {
 /*---------------------- End red -----------------------*/
 /*--------------------- Start green ----------------------*/
 .theme-green.sidebar-collapse .metismenu li.conditional-bg > a {
-  background: #53a96b;
+  background: #0a5c33;
   color: #fff;
 }
 
 .theme-green #toggle-setting {
-  color: #53a96b;
+  color: #0a5c33;
 }
 
 .theme-green .spinner {
-  border: 1px solid #53a96b;
+  border: 1px solid #0a5c33;
   border-left: 1px solid #000;
 }
 .theme-green .grid-example {
-  border: 1px solid #53a96b;
+  border: 1px solid #0a5c33;
 }
 .theme-green .double-bounce1, .theme-green .double-bounce2, .theme-green .scaleout, .theme-green .bounces > div, .theme-green .folding-cube .cube:before,
 .theme-green .header-right,
 .theme-green .metismenu a.current, .theme-green .metismenu a:hover, .theme-green .metismenu a:focus, .theme-green .metismenu a:active {
-  background: #53a96b;
+  background: #0a5c33;
 }
 .theme-green .pagination > .active > a, .theme-green .pagination > .active > a:focus, .theme-green .pagination > .active > a:hover, .theme-green .pagination > .active > span, .theme-green .pagination > .active > span:focus, .theme-green .pagination > .active > span:hover {
-  background-color: #53a96b;
-  border-color: #53a96b;
+  background-color: #0a5c33;
+  border-color: #0a5c33;
 }
 
 .bg-green, .btn-green, .btn-green.active, .btn-green:hover, .btn-green:active, .btn-green:focus {
-  background: #53a96b !important;
+  background: #0a5c33 !important;
 }
 
 /*---------------------- End green -----------------------*/

@@ -21,7 +21,7 @@
     </style>
 
 </head>
-<body class="active-ripple theme-darkpurple">
+<body class="active-ripple theme-green">
 <!-- BEGIN LOEADING -->
 <div id="loader">
     <div class="spinner"></div>
