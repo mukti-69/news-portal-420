@@ -36,7 +36,7 @@
     @stack('styles')
     <!-- END PAGE CSS -->
 </head>
-<body class="active-ripple theme-darkpurple fix-header sidebar-extra">
+<body class="active-ripple theme-green fix-header sidebar-extra">
 <!-- BEGIN LOEADING -->
 <div id="loader">
     <div class="spinner"></div>
