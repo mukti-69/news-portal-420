@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ویرایش تصویر'])
+@extends('panel::layouts.master', ['title' => 'ছবি সম্পাদনা'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.images.index') }}">لیست تصویر‌ها</a></li>
-        <li><a>ویرایش تصویر</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.images.index') }}">ছবির তালিকা</a></li>
+        <li><a>ছবি সম্পাদনা</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-user-follow"></i>
-                            ویرایش تصویر
+                            ছবি সম্পাদনা
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -43,26 +43,26 @@
                             </div>
                             <div class="form-group relative col-lg-6">
                                 <input type="file" class="form-control" name="image">
-                                <label>تصویر <small>(ضروری)</small></label>
+                                <label>ছবি <small>(আবশ্যক)</small></label>
                                 <div class="input-group round">
-                                    <input type="text" class="form-control file-input" placeholder="برای آپلود کلیک کنید">
+                                    <input type="text" class="form-control file-input" placeholder="আপলোড করতে ক্লিক করুন">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-success">
                                             <i class="icon-picture"></i>
-                                            آپلود عکس</button>
+                                            ছবি আপলোড</button>
                                     </span>
                                 </div><!-- /.input-group -->
                                 <div class="help-block"></div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="altText">متن جاگزین <small>(ضروری)</small></label>
+                                <label for="altText">বিকল্প লেখা <small>(আবশ্যক)</small></label>
                                 <input id="altText" class="form-control" name="altText" type="text" value="{{ old('altText') ?? $image->alt_text }}">
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ویرایش تصویر
+                                        ছবি সম্পাদনা
                                     </button>
                                 </div>
                             </div>

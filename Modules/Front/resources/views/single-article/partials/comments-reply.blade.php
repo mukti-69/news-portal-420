@@ -6,7 +6,7 @@
                 <img class="comment-avatar pull-left" src="{{ $child_comment->commenterImageLink() }}" alt="{{ $child_comment->commenterName() }}">
                 <div class="comment-body">
                     <div class="meta-data">
-                        <span class="comment-author">{{ ($child_comment->isGuest() ? 'کاربر مهمان: ' : '') . $child_comment->commenterName() }}</span>
+                        <span class="comment-author">{{ ($child_comment->isGuest() ? 'অতিথি ব্যবহারকারী: ' : '') . $child_comment->commenterName() }}</span>
                         <span class="comment-date pull-right">
                             <i class="fa fa-clock-o"></i>
                             <span>{{ jalalian()->forge($child_comment->created_at)->ago() }}</span>
@@ -18,9 +18,9 @@
                         </x-markdown>
                     </div>
                     <div class="text-left">
-                        <a class="comment-reply" data-toggle="modal" data-target="#commentModal{{ $child_comment->id }}">پاسخ</a>
+                        <a class="comment-reply" data-toggle="modal" data-target="#commentModal{{ $child_comment->id }}">উত্তর</a>
                         @canany('update', $child_comment)
-                            <a class="comment-edit" data-toggle="modal" data-target="#commentEditModal{{ $child_comment->id }}" style="margin-right: 1rem ">ویرایش</a>
+                            <a class="comment-edit" data-toggle="modal" data-target="#commentEditModal{{ $child_comment->id }}" style="margin-right: 1rem ">সম্পাদনা</a>
                         @endcanany
 
                         @canany('delete', $child_comment)
@@ -28,7 +28,7 @@
                                 @method('DELETE')
                                 @csrf
                             </form>
-                            <a onclick="event.preventDefault(); document.querySelector('#deleteForm{{ $child_comment->id }}').submit()" class="comment-delete">حذف</a>
+                            <a onclick="event.preventDefault(); document.querySelector('#deleteForm{{ $child_comment->id }}').submit()" class="comment-delete">মুছুন</a>
                         @endcanany
                     </div>
 
@@ -36,7 +36,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
-                                    <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">پاسخ خود به دیدگاه موردنظر را بیان کنید</h4>
+                                    <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">এই মন্তব্যের উত্তর লিখুন</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="flex-shrink: 0;"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
@@ -54,7 +54,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
-                                        <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">ویرایش دیدگاه</h4>
+                                        <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">মন্তব্য সম্পাদনা</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="flex-shrink: 0;"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body">
@@ -69,14 +69,14 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                            <textarea class="form-control required-field" name="comment" id="comment" placeholder="دیدگاه شما">{{ old('comment',
+                                                            <textarea class="form-control required-field" name="comment" id="comment" placeholder="আপনার মন্তব্য">{{ old('comment',
                                                             $child_comment->comment) }}</textarea>
                                                     </div>
                                                 </div><!-- Col end -->
                                             </div>
 
                                             <div class="clearfix">
-                                                <button class="comments-btn btn btn-primary" type="submit">ارسال دیدگاه</button>
+                                                <button class="comments-btn btn btn-primary" type="submit">মন্তব্য পাঠান</button>
                                             </div>
                                         </form>
                                     </div>

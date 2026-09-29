@@ -1,4 +1,4 @@
-@extends('auth::layouts.master', ['title' => 'صفحه ورود'])
+@extends('auth::layouts.master', ['title' => 'লগইন পেজ'])
 
 @section('content')
     <div class="logo-con m-t-10 m-b-10">
@@ -7,7 +7,7 @@
         <img src="{{ $siteDetails->secondLogoLink() }}" alt="{{ config('app.name') }}" class="light-logo center-block img-responsive"
              width="256px">
     </div><!-- /.logo-con -->
-    <h2 class="text-center m-b-20">وارد شوید</h2>
+    <h2 class="text-center m-b-20">লগইন করুন</h2>
 
     @if(session()->has('status') && session()->get('status') === 'success')
         <div class="alert alert-success m-t-10 m-b-20">
@@ -23,7 +23,7 @@
         @csrf
 
         <div class="form-group">
-            <label for="email" class="sr-only">ایمیل</label>
+            <label for="email" class="sr-only">ইমেইল</label>
             <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="icon-envelope"></i>
@@ -33,7 +33,7 @@
             </div><!-- /.input-group -->
         </div><!-- /.form-group -->
         <div class="form-group">
-            <label for="password" class="sr-only">رمز عبور</label>
+            <label for="password" class="sr-only">পাসওয়ার্ড</label>
             <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="icon-key"></i>
@@ -47,7 +47,7 @@
                 <div class="checkbox">
                     <label class="cursor-pointer" id="remember-me-label">
                         <input type="checkbox" id="remember-me" name="remember-me" @if(old('remember-me')) checked @endif>
-                        مرا به خاطر بسپار
+                        আমাকে মনে রাখুন
                     </label>
                 </div><!-- /.checkbox -->
             </div><!-- /.input-group-->
@@ -56,19 +56,19 @@
         <p>
             <button class="btn btn-success btn-block" type="submit">
                 <i class="icon-login font-lg"></i>
-                ورود
+                লগইন
             </button>
         </p>
     </form>
     <hr class="m-b-30">
     <a href="{{ route('password.request') }}" class="btn btn-default btn-block m-b-10">
         <i class="icon-refresh font-lg"></i>
-        بازیابی رمز عبور
+        পাসওয়ার্ড পুনরুদ্ধার
     </a>
     @if(config('auth.registration_enabled'))
         <a href="{{ route('register') }}" class="btn btn-default btn-block">
             <i class="icon-user-follow font-lg"></i>
-            حساب ندارید؟ ثبت نام کنید!
+            অ্যাকাউন্ট নেই? নিবন্ধন করুন!
         </a>
     @endif
 @endsection

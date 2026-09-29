@@ -7,8 +7,8 @@
                     {{ jalalian()->now()->format(config('common.front_date_format')) }}
                 </div>
                 <ul class="unstyled top-nav">
-                    <li><a href="{{ route('about-us.index') }}">درباره ما</a></li>
-                    <li><a href="{{ route('contact-us.index') }}">تماس با ما</a></li>
+                    <li><a href="{{ route('about-us.index') }}">আমাদের সম্পর্কে</a></li>
+                    <li><a href="{{ route('contact-us.index') }}">যোগাযোগ</a></li>
                 </ul>
                 </ul>
             </div><!--/ Top bar left end -->

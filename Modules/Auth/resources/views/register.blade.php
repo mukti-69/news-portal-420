@@ -1,10 +1,10 @@
-@extends('auth::layouts.master', ['title' => 'ثبت نام'])
+@extends('auth::layouts.master', ['title' => 'নিবন্ধন'])
 
 @section('content')
     <p class="text-center m-t-30 m-b-40">
         <i class="icon-user-follow border img-circle font-xxxlg p-20"></i>
     </p>
-    <h2 class="text-center m-b-20">ثبت نام </h2>
+    <h2 class="text-center m-b-20">নিবন্ধন </h2>
 
     <x-common-error-messages/>
 
@@ -14,7 +14,7 @@
         @csrf
 
         <div class="form-group">
-            <label class="sr-only control-label" for="username">نام</label>
+            <label class="sr-only control-label" for="username">নাম</label>
             <div class="input-group round">
                 <span class="input-group-addon">
                     <i class="icon-user"></i>
@@ -23,7 +23,7 @@
             </div><!-- /.input-group-->
         </div><!-- /.form-group -->
         <div class="form-group">
-            <label class="sr-only control-label" for="email">ایمیل</label>
+            <label class="sr-only control-label" for="email">ইমেইল</label>
             <div class="input-group round">
                 <span class="input-group-addon">
                     <i class="icon-envelope"></i>
@@ -33,22 +33,22 @@
             </div><!-- /.input-group-->
         </div><!-- /.form-group -->
         <div class="form-group">
-            <label class="sr-only control-label" for="password">رمز عبور</label>
+            <label class="sr-only control-label" for="password">পাসওয়ার্ড</label>
             <div class="input-group round">
                 <span class="input-group-addon">
                     <i class="icon-key"></i>
                 </span>
-                <input type="password" class="form-control round rtl text-left" id="password" name="password"
+                <input type="password" class="form-control round text-left" id="password" name="password"
                        minlength="8">
             </div><!-- /.input-group-->
         </div><!-- /.form-group -->
         <div class="form-group">
-            <label class="sr-only control-label" for="confirm_password">تکرار رمز عبور</label>
+            <label class="sr-only control-label" for="confirm_password">পাসওয়ার্ড আবার লিখুন</label>
             <div class="input-group round">
                 <span class="input-group-addon">
                     <i class="icon-key"></i>
                 </span>
-                <input type="password" class="form-control round rtl text-left" id="password_confirmation"
+                <input type="password" class="form-control round text-left" id="password_confirmation"
                        name="password_confirmation" minlength="8">
             </div><!-- /.input-group-->
         </div><!-- /.form-group -->
@@ -57,7 +57,7 @@
                 <div class="checkbox">
                     <label class="cursor-pointer" id="agree-label">
                         <input type="checkbox" id="agree" name="agree" @if(old('agree')) checked @endif>
-                        قوانین و مقررات سایت را می پذیرم
+                        আমি সাইটের নিয়ম ও শর্তাবলী মেনে নিচ্ছি
                     </label>
                 </div><!-- /.checkbox -->
             </div><!-- /.input-group-->
@@ -65,7 +65,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-block">
                 <i class="icon-check"></i>
-                ثبت نام
+                নিবন্ধন
             </button>
         </div><!-- /.form-group -->
     </form>
@@ -73,11 +73,11 @@
     <hr class="m-b-30">
     <a href="{{ route('password.request') }}" class="btn btn-default btn-block m-b-10">
         <i class="icon-refresh font-lg"></i>
-        بازیابی رمز عبور
+        পাসওয়ার্ড পুনরুদ্ধার
     </a>
     <a href="{{ route('login') }}" class="btn btn-default btn-block">
         <i class="icon-user-following font-lg"></i>
-        ثبت نام کرده اید؟ وارد شوید!
+        আগেই নিবন্ধন করেছেন? লগইন করুন!
     </a>
 @endsection
 

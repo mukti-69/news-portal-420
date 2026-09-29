@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ایجاد خبر جدید'])
+@extends('panel::layouts.master', ['title' => 'নতুন সংবাদ তৈরি করুন'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.articles.index') }}">لیست اخبار</a></li>
-        <li><a>ایجاد خبر جدید</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.articles.index') }}">সংবাদের তালিকা</a></li>
+        <li><a>নতুন সংবাদ তৈরি করুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-user-follow"></i>
-                            ایجاد خبر جدید
+                            নতুন সংবাদ তৈরি করুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -34,27 +34,27 @@
 
                         <fieldset class="row justify-content-center">
                             <div class="form-group col-lg-6">
-                                <label for="title">عنوان <small>(ضروری)</small></label>
+                                <label for="title">শিরোনাম <small>(আবশ্যক)</small></label>
                                 <input id="title" class="form-control" name="title" type="text" required value="{{ old('title') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="slug">slug <small>(ضروری)</small> </label>
+                                <label for="slug">slug <small>(আবশ্যক)</small> </label>
                                 <input id="slug" class="form-control" name="slug" type="text" required value="{{ old('slug') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="published_at">তারিখ প্রকাশ <small>(ضروری)</small></label>
+                                <label for="published_at">তারিখ প্রকাশ <small>(আবশ্যক)</small></label>
                                 <input id="published_at" name="published_at" type="datetime-local"
                                        class="form-control" required dir="ltr"
                                        value="{{ old('published_at') }}">
                             </div>
                             <div class="form-group relative col-lg-6">
-                                <label>تصویر شاخص <small>(ضروری)</small></label>
+                                <label>ফিচার্ড ছবি <small>(আবশ্যক)</small></label>
                                 <div class="input-group round">
-                                    <input type="text" class="form-control file-input" placeholder="برای آپلود کلیک کنید">
+                                    <input type="text" class="form-control file-input" placeholder="আপলোড করতে ক্লিক করুন">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-success">
                                             <i class="icon-picture"></i>
-                                            آپلود تصویر</button>
+                                            ছবি আপলোড</button>
                                     </span>
                                 </div><!-- /.input-group -->
                                 <input type="file" class="form-control" name="image" required>
@@ -67,9 +67,9 @@
                                 <div class="help-block">খবরের সাথে ভিডিও থাকলে YouTube বা Facebook থেকে লিংক কপি করে এখানে বসান।</div>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="category_id">دسته‌بندی <small>(ضروری)</small></label>
+                                <label for="category_id">বিভাগ <small>(আবশ্যক)</small></label>
                                 <select id="category_id" class="form-control select2" name="category_id">
-                                    <option value="">انتخاب دسته‌بندی</option>
+                                    <option value="">বিভাগ নির্বাচন করুন</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" @if((int) old('category_id') === $category->id) selected @endif>{{ $category->name
                                         }}</option>
@@ -77,9 +77,9 @@
                                 </select>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="type">نوع محتوا <small>(ضروری)</small></label>
+                                <label for="type">কনটেন্টের ধরন <small>(আবশ্যক)</small></label>
                                 <select id="type" class="form-control select2" name="type">
-                                    <option value="">انتخاب نوع محتوا</option>
+                                    <option value="">কনটেন্টের ধরন নির্বাচন করুন</option>
                                     @foreach($types as $type)
                                         <option value="{{ $type }}" @if(old('type') === $type) selected @endif>{{ __('article::types.' . $type) }}</option>
                                     @endforeach
@@ -87,7 +87,7 @@
                             </div>
                             <div class="form-group col-12 d-flex justify-content-center">
                                 <div class="col-12 col-md-6">
-                                    <label for="tag_ids">تگ</label>
+                                    <label for="tag_ids">ট্যাগ</label>
                                     <select id="tag_ids" class="form-control select2" name="tag_ids[]" multiple>
                                         @foreach($tags as $tag)
                                             <option value="{{ $tag->id }}" @if(in_array($tag->id, old('tag_ids', []))) selected @endif>{{ $tag->name }}</option>
@@ -96,32 +96,32 @@
                                 </div>
                             </div>
                             <div class="form-group col-12">
-                                <label for="tinymce-editor">متن خبر <small>(ضروری)</small></label>
+                                <label for="tinymce-editor">সংবাদের মূল লেখা <small>(আবশ্যক)</small></label>
                                 <textarea id="tinymce-editor" name="body" required>{{ old('body') }}</textarea>
                             </div>
                             <div class="col-12 col-md-6 row form-group justify-content-center">
                                 @can(config('permissions_list.ARTICLE_EDITOR_CHOICE', false))
                                     <div class="text-center col-4">
                                         <input id="editor_choice" class="form-control" name="editor_choice" type="checkbox" @if(old('editor_choice')) checked @endif>
-                                        <label for="editor_choice">انتخاب سردبیر</label>
+                                        <label for="editor_choice">সম্পাদকের পছন্দ</label>
                                     </div>
                                 @endcanany
                                 @can(config('permissions_list.ARTICLE_HOTNESS', false))
                                     <div class="text-center col-4">
                                         <input id="hotness" class="form-control" name="hotness" type="checkbox" @if(old('hotness')) checked @endif>
-                                        <label for="hotness">خبر داغ</label>
+                                        <label for="hotness">ব্রেকিং নিউজ</label>
                                     </div>
                                 @endcanany
                                 <div class="text-center col-4">
                                     <input id="status" class="form-control" name="status" type="checkbox" @if(old('status')) checked @endif>
-                                    <label for="status">وضعیت انتشار</label>
+                                    <label for="status">প্রকাশের অবস্থা</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ایجاد خبر جدید
+                                        নতুন সংবাদ তৈরি করুন
                                     </button>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
 
 @push('scripts')
     <script src="{{ asset('admin/assets/plugins/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/fa.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/bn.js') }}"></script>
     <script src="{{ asset('admin/assets/js/pages/select2.js') }}"></script>
 
     @include('common::partials.tinymce-scripts')

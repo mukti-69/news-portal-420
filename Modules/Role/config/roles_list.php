@@ -3,14 +3,14 @@
 return [
     [
         'name' => 'Admin',
-        'local_name' => 'مدیر',
+        'local_name' => 'অ্যাডমিন',
         'permissions' => [
             config('permissions_list.SUPER_ADMIN'),
         ],
     ],
     [
         'name' => 'Editor',
-        'local_name' => 'ویرایشگر',
+        'local_name' => 'সম্পাদক',
         'permissions' => [
             config('permissions_list.ARTICLE_INDEX'),
             config('permissions_list.ARTICLE_STORE'),
@@ -57,7 +57,7 @@ return [
     ],
     [
         'name' => 'Author',
-        'local_name' => 'نویسنده',
+        'local_name' => 'লেখক',
         'permissions' => [
             config('permissions_list.ARTICLE_INDEX'),
             config('permissions_list.ARTICLE_STORE'),
@@ -76,7 +76,7 @@ return [
     ],
     [
         'name' => 'Subscriber',
-        'local_name' => 'عضو ساده',
+        'local_name' => 'সাধারণ সদস্য',
         'permissions' => [
             config('permissions_list.PROFILE_EDIT'),
             config('permissions_list.PROFILE_CHANGE_PASSWORD'),

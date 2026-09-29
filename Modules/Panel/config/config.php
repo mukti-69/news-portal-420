@@ -3,13 +3,13 @@
 return [
     'sidebar_menus' => [
         'panel' => [
-            'title' => 'پیشخوان',
+            'title' => 'ড্যাশবোর্ড',
             'icon' => 'icon-home',
             'url' => route(config('app.panel_prefix', 'panel').'.index'),
         ],
 
         'article' => [
-            'title' => 'اخبار',
+            'title' => 'সংবাদ ব্যবস্থাপনা',
             'icon' => 'icon-globe',
             'url' => route(config('app.panel_prefix', 'panel').'.articles.index'),
             'permissions' => config('permissions_list.ARTICLE_INDEX', false),
@@ -21,7 +21,7 @@ return [
         ],
 
         'category' => [
-            'title' => 'دسته‌بندی‌ها',
+            'title' => 'বিভাগ (ক্যাটাগরি)',
             'icon' => 'icon-grid',
             'url' => route(config('app.panel_prefix', 'panel').'.categories.index'),
             'permissions' => config('permissions_list.CATEGORY_INDEX', false),
@@ -33,7 +33,7 @@ return [
         ],
 
         'tag' => [
-            'title' => 'تگ‌ها',
+            'title' => 'ট্যাগ',
             'icon' => 'icon-tag',
             'url' => route(config('app.panel_prefix', 'panel').'.tags.index'),
             'permissions' => config('permissions_list.TAG_INDEX', false),
@@ -45,7 +45,7 @@ return [
         ],
 
         'comment' => [
-            'title' => 'نظرات',
+            'title' => 'মন্তব্য',
             'icon' => 'icon-bubbles',
             'url' => route(config('app.panel_prefix', 'panel').'.comments.index'),
             'permissions' => config('permissions_list.COMMENT_INDEX', false),
@@ -55,7 +55,7 @@ return [
         ],
 
         'menu_builder' => [
-            'title' => 'منو ساز',
+            'title' => 'মেনু ম্যানেজার',
             'icon' => 'icon-menu',
             'url' => route(config('app.panel_prefix', 'panel').'.menus.index'),
             'permissions' => config('permissions_list.MENU_INDEX', false),
@@ -68,7 +68,7 @@ return [
         ],
 
         'page_builder' => [
-            'title' => 'صفحه ساز',
+            'title' => 'পেজ বিল্ডার',
             'icon' => 'fas fa-laptop-file',
             'url' => route(config('app.panel_prefix', 'panel').'.pages.index'),
             'permissions' => config('permissions_list.PAGE_INDEX', false),
@@ -79,7 +79,7 @@ return [
         ],
 
         'file_manager' => [
-            'title' => 'مدیریت فایل‌ها',
+            'title' => 'মিডিয়া (ছবি/ভিডিও)',
             'icon' => 'icon-folder-alt',
             'active_routes' => [
                 config('app.panel_prefix', 'panel').'.images.index',
@@ -97,7 +97,7 @@ return [
             ],
             'children' => [
                 [
-                    'title' => 'تصاویر',
+                    'title' => 'ছবি',
                     'icon' => 'icon-picture',
                     'url' => route(config('app.panel_prefix', 'panel').'.images.index'),
                     'permissions' => [
@@ -110,7 +110,7 @@ return [
                     ],
                 ],
                 [
-                    'title' => 'ویدئوها',
+                    'title' => 'ভিডিও',
                     'icon' => 'icon-film',
                     'url' => route(config('app.panel_prefix', 'panel').'.videos.index'),
                     'permissions' => [
@@ -126,7 +126,7 @@ return [
         ],
 
         'user' => [
-            'title' => 'کاربران',
+            'title' => 'ব্যবহারকারী',
             'icon' => ' icon-people',
             'url' => route(config('app.panel_prefix', 'panel').'.users.index'),
             'permissions' => config('permissions_list.USER_INDEX', false),
@@ -139,7 +139,7 @@ return [
         ],
 
         'role' => [
-            'title' => 'نقش‌ها',
+            'title' => 'রোল ও পারমিশন',
             'icon' => 'fas fa-arrow-down-up-lock',
             'url' => route(config('app.panel_prefix', 'panel').'.roles.index'),
             'permissions' => config('permissions_list.ROLE_INDEX', false),
@@ -150,7 +150,7 @@ return [
         ],
 
         'profile' => [
-            'title' => 'پروفایل',
+            'title' => 'প্রোফাইল',
             'icon' => 'icon-user',
             'active_routes' => [
                 config('app.panel_prefix', 'panel').'.profile.edit',
@@ -165,25 +165,25 @@ return [
             ],
             'children' => [
                 [
-                    'title' => 'ویرایش پروفایل',
+                    'title' => 'প্রোফাইল সম্পাদনা',
                     'icon' => 'icon-note',
                     'url' => route(config('app.panel_prefix', 'panel').'.profile.edit'),
                     'permissions' => config('permissions_list.PROFILE_EDIT', false),
                 ],
                 [
-                    'title' => 'تغییر رمز عبور',
+                    'title' => 'পাসওয়ার্ড পরিবর্তন',
                     'icon' => 'icon-key',
                     'url' => route(config('app.panel_prefix', 'panel').'.profile.password.change'),
                     'permissions' => config('permissions_list.PROFILE_CHANGE_PASSWORD', false),
                 ],
                 [
-                    'title' => 'تغییر ایمیل',
+                    'title' => 'ইমেইল পরিবর্তন',
                     'icon' => 'icon-envelope-letter',
                     'url' => route(config('app.panel_prefix', 'panel').'.profile.email.change'),
                     'permissions' => config('permissions_list.PROFILE_CHANGE_EMAIL', false),
                 ],
                 [
-                    'title' => 'ثبت شبکه‌های اجتماعی',
+                    'title' => 'সোশ্যাল মিডিয়া লিংক',
                     'icon' => 'icon-link',
                     'url' => route(config('app.panel_prefix', 'panel').'.profile.social-networks.edit'),
                     'permissions' => config('permissions_list.PROFILE_SOCIAL_NETWORKS', false),
@@ -192,7 +192,7 @@ return [
         ],
 
         'user_activity' => [
-            'title' => 'فعالیت‌های کاربران',
+            'title' => 'ব্যবহারকারীর কার্যকলাপ',
             'icon' => 'icon-chart',
             'active_routes' => [
                 config('app.panel_prefix', 'panel').'.users-track.index',
@@ -205,19 +205,19 @@ return [
             ],
             'children' => [
                 [
-                    'title' => 'ردیابی کاربران',
+                    'title' => 'ব্যবহারকারী ট্র্যাকিং',
                     'icon' => 'fas fa-users-viewfinder',
                     'url' => route(config('app.panel_prefix', 'panel').'.users-track.index'),
                     'permissions' => config('permissions_list.USER_TRACK_INDEX', false),
                 ],
                 [
-                    'title' => 'ردیابی بازدیدها',
+                    'title' => 'ভিজিট ট্র্যাকিং',
                     'icon' => 'fas fa-arrows-to-eye',
                     'url' => route(config('app.panel_prefix', 'panel').'.requests-track.index'),
                     'permissions' => config('permissions_list.REQUEST_TRACK_INDEX', false),
                 ],
                 [
-                    'title' => 'آمار بازدیدها',
+                    'title' => 'ভিজিট পরিসংখ্যান',
                     'icon' => 'icon-eye',
                     'url' => route(config('app.panel_prefix', 'panel').'.requests-track.visits-stats'),
                     'permissions' => config('permissions_list.REQUEST_TRACK_INDEX', false),
@@ -226,7 +226,7 @@ return [
         ],
 
         'contact_us' => [
-            'title' => 'تماس با ما',
+            'title' => 'যোগাযোগ',
             'icon' => 'icon-earphones-alt',
             'active_routes' => [
                 config('app.panel_prefix', 'panel').'.contact-us.info.edit',
@@ -239,13 +239,13 @@ return [
             ],
             'children' => [
                 [
-                    'title' => 'ثبت اطلاعات تماس',
+                    'title' => 'যোগাযোগের তথ্য',
                     'icon' => 'icon-call-in',
                     'url' => route(config('app.panel_prefix', 'panel').'.contact-us.info.edit'),
                     'permissions' => config('permissions_list.CONTACT_INFO', false),
                 ],
                 [
-                    'title' => 'پیام‌های کاربران',
+                    'title' => 'ব্যবহারকারীর বার্তা',
                     'icon' => 'icon-envelope',
                     'url' => route(config('app.panel_prefix', 'panel').'.contact-us.messages.index'),
                     'permissions' => config('permissions_list.CONTACT_MESSAGES', false),
@@ -257,7 +257,7 @@ return [
         ],
 
         'ads' => [
-            'title' => 'تبلیغات',
+            'title' => 'বিজ্ঞাপন',
             'icon' => 'fas fa-bullhorn',
             'url' => route(config('app.panel_prefix', 'panel').'.ads.index'),
             'permissions' => config('permissions_list.AD_INDEX', false),
@@ -268,14 +268,14 @@ return [
         ],
 
         'newsletter' => [
-            'title' => 'خبرنامه',
+            'title' => 'নিউজলেটার',
             'icon' => 'icon-paper-plane',
             'url' => route(config('app.panel_prefix', 'panel').'.newsletters.index'),
             'permissions' => config('permissions_list.NEWSLETTER_INDEX', false),
         ],
 
         'redirect' => [
-            'title' => 'ریدایرکت‌ها',
+            'title' => 'রিডাইরেক্ট',
             'icon' => 'fas fa-link',
             'url' => route(config('app.panel_prefix', 'panel').'.redirects.index'),
             'permissions' => config('permissions_list.REDIRECT_INDEX', false),
@@ -286,7 +286,7 @@ return [
         ],
 
         'setting' => [
-            'title' => 'تنظیمات سایت',
+            'title' => 'সাইট কনফিগারেশন',
             'icon' => 'icon-settings',
             'active_routes' => [
                 config('app.panel_prefix', 'panel').'.settings.site-details.edit',
@@ -302,25 +302,25 @@ return [
             ],
             'children' => [
                 [
-                    'title' => 'ثبت جزئیات سایت',
+                    'title' => 'সাইটের তথ্য',
                     'icon' => 'icon-wrench',
                     'url' => route(config('app.panel_prefix', 'panel').'.settings.site-details.edit'),
                     'permissions' => config('permissions_list.SETTING_SITE_DETAILS', false),
                 ],
                 [
-                    'title' => 'ثبت شبکه‌های اجتماعی',
+                    'title' => 'সোশ্যাল মিডিয়া লিংক',
                     'icon' => 'icon-link',
                     'url' => route(config('app.panel_prefix', 'panel').'.settings.social-networks.edit'),
                     'permissions' => config('permissions_list.SETTING_SOCIAL_NETWORKS', false),
                 ],
                 [
-                    'title' => 'درباره ما',
+                    'title' => 'আমাদের সম্পর্কে',
                     'icon' => 'icon-question',
                     'url' => route(config('app.panel_prefix', 'panel').'.settings.about-us.edit'),
                     'permissions' => config('permissions_list.SETTING_ABOUT_US', false),
                 ],
                 [
-                    'title' => 'مدیریت حافظه پنهان',
+                    'title' => 'ক্যাশ ব্যবস্থাপনা',
                     'icon' => 'icon-layers',
                     'url' => route(config('app.panel_prefix', 'panel').'.settings.cache-management.index'),
                     'permissions' => config('permissions_list.CACHE_INDEX', false),

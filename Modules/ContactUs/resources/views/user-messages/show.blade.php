@@ -1,10 +1,10 @@
-@extends('panel::layouts.master', ['title' => 'مشاهده پیام'])
+@extends('panel::layouts.master', ['title' => 'বার্তা দেখুন'])
 
 @section('content')
 
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.contact-us.messages.index') }}">لیست پیام‌های کاربران</a></li>
-        <li><a>مشاهده پیام</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.contact-us.messages.index') }}">ব্যবহারকারীদের বার্তার তালিকা</a></li>
+        <li><a>বার্তা দেখুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -14,12 +14,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-envelope-open"></i>
-                            مشاهده پیام
+                            বার্তা দেখুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box ltr">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -30,23 +30,23 @@
                 </div><!-- /.portlet-heading -->
                 <div class="portlet-body row">
                     <h2 class="col-12 message-column">
-                        <span>موضوع:</span>
+                        <span>বিষয়:</span>
                         <span>{{ $userMessage->subject }}</span>
                     </h2>
                     <div class="col-md-4 message-column">
-                        <span>نام:</span>
+                        <span>নাম:</span>
                         <span>{{ $userMessage->name }}</span>
                     </div>
                     <div class="col-md-4 message-column">
-                        <span>ایمیل:</span>
+                        <span>ইমেইল:</span>
                         <span>{{ $userMessage->email }}</span>
                     </div>
                     <div class="col-md-4 message-column">
-                        <span>شماره تماس:</span>
+                        <span>ফোন নম্বর:</span>
                         <span>{{ nullable_value($userMessage->phone) }}</span>
                     </div>
                     <div class="col-12 message-column">
-                        <p>پیام:</p>
+                        <p>বার্তা:</p>
                         <p>{{ $userMessage->message }}</p>
                     </div>
                 </div><!-- /.portlet -->

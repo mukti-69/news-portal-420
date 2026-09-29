@@ -1,5 +1,5 @@
 $(".select2.round").select2({
-    rtl: true,
+    language: "bn",
     width: "100%"
 });
 

@@ -1,10 +1,10 @@
-@extends('auth::layouts.master', ['title' => 'فراموشی رمز عبور'])
+@extends('auth::layouts.master', ['title' => 'পাসওয়ার্ড ভুলে গেছেন'])
 
 @section('content')
     <p class="text-center m-t-30 m-b-40">
         <i class="icon-lock-open border img-circle font-xxxlg p-20"></i>
     </p>
-    <h2 class="text-center">بازیابی رمز عبور</h2>
+    <h2 class="text-center">পাসওয়ার্ড পুনরুদ্ধার</h2>
 
     @if(session()->has('success'))
         <div class="alert alert-success m-t-10 m-b-20">
@@ -14,7 +14,7 @@
     @else
         <div class="alert alert-info text-center m-t-10 m-b-20">
             <i class="icon-comments"></i>
-            ایمیل خود را برای بازیابی رمز عبور وارد نمایید.
+            পাসওয়ার্ড পুনরুদ্ধারের জন্য আপনার ইমেইল দিন।
         </div>
     @endif
 
@@ -25,7 +25,7 @@
     <form id="form" method="POST" action="{{ route('password.email') }}">
         @csrf
         <div class="form-group">
-            <label class="sr-only control-label" for="email">ایمیل</label>
+            <label class="sr-only control-label" for="email">ইমেইল</label>
             <div class="input-group round">
                                     <span class="input-group-addon">
                                         <i class="icon-envelope"></i>
@@ -36,7 +36,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-block m-t-20">
                 <i class="icon-envelope-letter"></i>
-                ارسال ایمیل بازیابی
+                রিসেট ইমেইল পাঠান
             </button>
         </div><!-- /.form-group -->
     </form>
@@ -44,7 +44,7 @@
     <hr class="m-b-30">
     <a href="{{ route('login') }}" class="btn btn-default btn-block m-b-10">
         <i class="icon-user-following font-lg"></i>
-        صفحه ورود
+        লগইন পেজ
     </a>
 @endsection
 

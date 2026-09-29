@@ -1,10 +1,10 @@
-@extends('panel::layouts.master', ['title' => 'مشاهده نظر'])
+@extends('panel::layouts.master', ['title' => 'মন্তব্য দেখুন'])
 
 @section('content')
 
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.comments.index') }}">لیست نظرات</a></li>
-        <li><a>مشاهده نظر</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.comments.index') }}">মন্তব্যের তালিকা</a></li>
+        <li><a>মন্তব্য দেখুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -14,12 +14,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="far fa-comment"></i>
-                            مشاهده نظر
+                            মন্তব্য দেখুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box ltr">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -34,12 +34,12 @@
                             <a href="#">
                                 <img src="{{ $comment->commenterImageLink() }}" class="img-circle" alt="{{ $comment->commenterName() }}">
                                 <span class="user">
-                                {{ ($comment->isGuest() ? 'کاربر مهمان: ' : '') . $comment->commenterName() }}
+                                {{ ($comment->isGuest() ? 'অতিথি ব্যবহারকারী: ' : '') . $comment->commenterName() }}
                             </span>
                             </a>
                             <span class="float-end text-muted">
                             <i class="icon-clock"></i>
-                            <span class="rtl" style="display: inline-block">{{ jalalian()->forge($comment->created_at)->ago() }}</span>
+                            <span style="display: inline-block">{{ jalalian()->forge($comment->created_at)->ago() }}</span>
                         </span>
                             <p class="my-3 mx-5">
                                 <x-markdown class="my-2 mx-5">
@@ -54,7 +54,7 @@
                                         @csrf
                                         @method('patch')
                                         <button class="btn btn-sm btn-success btn-icon round d-flex justify-content-center align-items-center"
-                                                rel="tooltip" aria-label="تایید نظر" data-bs-original-title="تایید نظر">
+                                                rel="tooltip" aria-label="মন্তব্য অনুমোদন" data-bs-original-title="মন্তব্য অনুমোদন">
                                             <i class="icon-check"></i>
                                         </button>
                                     </form>
@@ -66,7 +66,7 @@
                                         @csrf
                                         @method('patch')
                                         <button class="btn btn-sm btn-warning btn-icon round d-flex justify-content-center align-items-center"
-                                                rel="tooltip" aria-label="رد نظر" data-bs-original-title="رد نظر">
+                                                rel="tooltip" aria-label="মন্তব্য বাতিল" data-bs-original-title="মন্তব্য বাতিল">
                                             <i class="icon-close"></i>
                                         </button>
                                     </form>

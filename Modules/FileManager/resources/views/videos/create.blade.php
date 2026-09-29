@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ایجاد ویدئو جدید'])
+@extends('panel::layouts.master', ['title' => 'নতুন ভিডিও যোগ করুন'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.videos.index') }}">لیست ویدئوها</a></li>
-        <li><a>ایجاد ویدئو جدید</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.videos.index') }}">ভিডিওর তালিকা</a></li>
+        <li><a>নতুন ভিডিও যোগ করুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-film"></i>
-                            ایجاد ویدئو جدید
+                            নতুন ভিডিও যোগ করুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -35,26 +35,26 @@
                         <fieldset class="row justify-content-center">
                             <div class="form-group relative col-lg-6">
                                 <input type="file" class="form-control" name="video" accept="video/*" required>
-                                <label>ویدئو <small>(ضروری)</small></label>
+                                <label>ভিডিও <small>(আবশ্যক)</small></label>
                                 <div class="input-group round">
-                                    <input type="text" class="form-control file-input" placeholder="برای آپلود کلیک کنید" readonly>
+                                    <input type="text" class="form-control file-input" placeholder="আপলোড করতে ক্লিক করুন" readonly>
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-success">
                                             <i class="icon-film"></i>
-                                            آپلود ویدئو</button>
+                                            ভিডিও আপলোড</button>
                                     </span>
                                 </div><!-- /.input-group -->
                                 <div class="help-block"></div>
                             </div>
                             <div class="form-group relative col-lg-6">
                                 <input type="file" class="form-control" name="thumbnail">
-                                <label>تصویر بندانگشتی</label>
+                                <label>থাম্বনেইল</label>
                                 <div class="input-group round">
-                                    <input type="text" class="form-control file-input" placeholder="برای آپلود کلیک کنید">
+                                    <input type="text" class="form-control file-input" placeholder="আপলোড করতে ক্লিক করুন">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-success">
                                             <i class="icon-picture"></i>
-                                            آپلود تصویر</button>
+                                            ছবি আপলোড</button>
                                     </span>
                                 </div><!-- /.input-group -->
                                 <div class="help-block"></div>
@@ -63,7 +63,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ایجاد ویدئو جدید
+                                        নতুন ভিডিও যোগ করুন
                                     </button>
                                 </div>
                             </div>

@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ایجاد صفحه جدید'])
+@extends('panel::layouts.master', ['title' => 'নতুন পেজ তৈরি করুন'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.pages.index') }}">لیست صفحات</a></li>
-        <li><a>ایجاد صفحه جدید</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.pages.index') }}">পেজের তালিকা</a></li>
+        <li><a>নতুন পেজ তৈরি করুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="fas fa-laptop-file"></i>
-                            ایجاد صفحه جدید
+                            নতুন পেজ তৈরি করুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -34,25 +34,25 @@
 
                         <fieldset class="row justify-content-center">
                             <div class="form-group col-lg-6">
-                                <label for="title">عنوان <small>(ضروری)</small></label>
+                                <label for="title">শিরোনাম <small>(আবশ্যক)</small></label>
                                 <input id="title" class="form-control" name="title" type="text" required value="{{ old('title') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="slug">slug <small>(ضروری)</small> </label>
+                                <label for="slug">slug <small>(আবশ্যক)</small> </label>
                                 <input id="slug" class="form-control" name="slug" type="text" required value="{{ old('slug') }}">
                             </div>
                             <div class="form-group col-12">
-                                <label for="tinymce-editor">محتوا <small>(ضروری)</small></label>
+                                <label for="tinymce-editor">বিষয়বস্তু <small>(আবশ্যক)</small></label>
                                 <textarea id="tinymce-editor" name="content" required>{{ old('content') }}</textarea>
                             </div>
                             <div class="form-group relative col-lg-6">
-                                <label>تصویر شاخص <small>(ضروری)</small></label>
+                                <label>ফিচার্ড ছবি <small>(আবশ্যক)</small></label>
                                 <div class="input-group round">
-                                    <input type="text" class="form-control file-input" placeholder="برای آپلود کلیک کنید">
+                                    <input type="text" class="form-control file-input" placeholder="আপলোড করতে ক্লিক করুন">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-success">
                                             <i class="icon-picture"></i>
-                                            آپلود تصویر</button>
+                                            ছবি আপলোড</button>
                                     </span>
                                 </div><!-- /.input-group -->
                                 <input type="file" class="form-control" name="image" required>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-12 text-center form-group">
                                 <div>
-                                    <label for="status">وضعیت <small>(ضروری)</small></label>
+                                    <label for="status">অবস্থা <small>(আবশ্যক)</small></label>
                                     <input id="status" class="form-control" name="status" type="checkbox" @if(old('status')) checked @endif>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ایجاد صفحه جدید
+                                        নতুন পেজ তৈরি করুন
                                     </button>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
 
 @push('scripts')
     <script src="{{ asset('admin/assets/plugins/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/fa.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/bn.js') }}"></script>
     <script src="{{ asset('admin/assets/js/pages/select2.js') }}"></script>
 
     @include('common::partials.tinymce-scripts')

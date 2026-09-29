@@ -1,5 +1,5 @@
 <div class="related-posts block">
-    <h3 class="block-title"><span>مطالب مرتبط</span></h3>
+    <h3 class="block-title"><span>সম্পর্কিত খবর</span></h3>
 
     <div id="latest-news-slide" class="owl-carousel owl-theme latest-news-slide">
         @foreach($related_articles as $related_article)

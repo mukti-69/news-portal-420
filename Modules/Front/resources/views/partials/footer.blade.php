@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-row">
                 <div class="footer-widget widget-editor-choices">
-                    <h3 class="widget-title">انتخاب سردبیر</h3>
+                    <h3 class="widget-title">সম্পাদকের পছন্দ</h3>
                     <div class="list-post-block">
                         <ul class="list-post">
                             @foreach($footer['editor_choices'] as $editor_choice)
@@ -32,7 +32,7 @@
 
                 <div>
                     <div class="footer-widget widget-categories">
-                        <h3 class="widget-title">موضوعات داغ</h3>
+                        <h3 class="widget-title">আলোচিত বিষয়</h3>
                         <ul>
                             @foreach($footer['hot_topics'] as $tag)
                                 <li>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="footer-widget">
-                        <h3 class="widget-title">خبرهای پربحث ماه</h3>
+                        <h3 class="widget-title">এই মাসের আলোচিত খবর</h3>
                         <div class="list-post-block">
                             <ul class="list-post">
 

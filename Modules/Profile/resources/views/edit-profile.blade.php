@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ویرایش پروفایل'])
+@extends('panel::layouts.master', ['title' => 'প্রোফাইল সম্পাদনা'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a>پروفایل</a></li>
-        <li><a>ویرایش پروفایل</a></li>
+        <li><a>প্রোফাইল</a></li>
+        <li><a>প্রোফাইল সম্পাদনা</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="far fa-pen-to-square"></i>
-                            ویرایش پروفایل
+                            প্রোফাইল সম্পাদনা
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -35,28 +35,28 @@
 
                         <fieldset class="row justify-content-center">
                             <div class="form-group col-lg-6">
-                                <label for="full_name">نام کامل <small>(ضروری)</small></label>
+                                <label for="full_name">পুরো নাম <small>(আবশ্যক)</small></label>
                                 <input id="full_name" class="form-control" name="full_name" type="text" required value="{{ old('full_name', $user->full_name) }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="username">نام کاربری <small>(ضروری)</small></label>
+                                <label for="username">ইউজারনেম <small>(আবশ্যক)</small></label>
                                 <input id="username" class="form-control" name="username" type="text" required value="{{ old('username', $user->username) }}">
                             </div>
                             <div class="form-group col-12 row justify-content-center">
                                 <div class="col-md-6">
-                                    <label for="bio">توضیح مختصری در مورد کاربر</label>
+                                    <label for="bio">ব্যবহারকারী সম্পর্কে সংক্ষিপ্ত বিবরণ</label>
                                     <textarea class="form-control" name="bio" id="bio">{{ old('bio', $user->bio) }}</textarea>
                                 </div>
                             </div>
                             <div class="col-12 d-flex flex-column align-items-center">
                                 <div class="form-group relative col-lg-6">
-                                    <label>تصویر کاربر <small>(ضروری)</small></label>
+                                    <label>ব্যবহারকারীর ছবি <small>(আবশ্যক)</small></label>
                                     <div class="input-group round">
-                                        <input type="text" class="form-control file-input" placeholder="برای آپلود کلیک کنید">
+                                        <input type="text" class="form-control file-input" placeholder="আপলোড করতে ক্লিক করুন">
                                         <span class="input-group-btn">
                                         <button type="button" class="btn btn-success">
                                             <i class="icon-picture"></i>
-                                            آپلود تصویر</button>
+                                            ছবি আপলোড</button>
                                     </span>
                                     </div>
                                     <input type="file" class="form-control" name="picture">
@@ -71,7 +71,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ویرایش پروفایل
+                                        প্রোফাইল সম্পাদনা
                                     </button>
                                 </div>
                             </div>

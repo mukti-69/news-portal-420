@@ -19,7 +19,7 @@ class RegisterControllerTest extends TestCase
         $response = $this->get(route('register'));
         $response->assertStatus(200)
             ->assertViewIs('auth::register')
-            ->assertSee('ثبت نام');
+            ->assertSee('নিবন্ধন');
     }
 
     /** @test */

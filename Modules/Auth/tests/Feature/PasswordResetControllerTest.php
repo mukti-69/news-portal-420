@@ -22,7 +22,7 @@ class PasswordResetControllerTest extends TestCase
         $response = $this->get(route('password.request'));
         $response->assertStatus(200)
             ->assertViewIs('auth::password.forgot')
-            ->assertSee('بازیابی');
+            ->assertSee('পাসওয়ার্ড পুনরুদ্ধার');
     }
 
     /** @test */

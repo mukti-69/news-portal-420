@@ -21,23 +21,23 @@ $("#advanced-form").validate({
     },
     messages: {
         name: {
-            required: "نام خود را وارد نمائید",
-            minlength: "نام باید دست کم 2 کاراکتر باشد"
+            required: "আপনার নাম লিখুন",
+            minlength: "নাম কমপক্ষে ২ অক্ষরের হতে হবে"
         },
         password: {
-            required: "رمز عبور را وارد نمائید",
-            // minlength: "رمز عبور دست کم باید 5 کاراکتر باشد"
+            required: "পাসওয়ার্ড লিখুন",
+            // minlength: "পাসওয়ার্ড কমপক্ষে ৫ অক্ষরের হতে হবে"
         },
         password_confirmation: {
-            required: "تائید رمز عبور را وارد نمائید",
-            // minlength: "تائید رمز عبور دست کم باید 5 کاراکتر باشد",
-            equalTo: "رمزهای عبور یکسان نیستند"
+            required: "পাসওয়ার্ড আবার লিখুন",
+            // minlength: "পাসওয়ার্ড কমপক্ষে ৫ অক্ষরের হতে হবে",
+            equalTo: "পাসওয়ার্ড দুটি মেলেনি"
         },
         email: {
-            required: "ایمیل خود را وارد نمائید",
-            email: "نشانی ایمیل صحیح نیست",
+            required: "আপনার ইমেইল লিখুন",
+            email: "ইমেইল ঠিকানাটি সঠিক নয়",
         },
-        agree: "تیک تائید قوانین را بزنید"
+        agree: "নিয়ম ও শর্তাবলীতে টিক দিন"
     },
     errorElement: "span",
     errorPlacement: function (error, element) {

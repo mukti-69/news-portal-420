@@ -45,12 +45,12 @@
                                     <form action="{{ $markAllAsSeenUserMessagesRoute }}" method="POST" style="display: inline;">
                                         @csrf
                                         @if($unseenUserMessagesCount > 0)
-                                            <button type="submit" rel="tooltip" title="خواندن همه" data-placement="left" style="padding: 0; border: none; background: none;">
+                                            <button type="submit" rel="tooltip" title="সব পড়া হয়েছে" data-placement="left" style="padding: 0; border: none; background: none;">
                                             <i class="icon-eye"></i>
                                         </button>
                                         @endif
                                     </form>
-                                    شما {{ $unseenUserMessagesCount }} پیام تازه دارید.
+                                    আপনি {{ $unseenUserMessagesCount }} নতুন বার্তা এসেছে।
                                 </span>
                             </li>
                             <li class="dropdown-body">
@@ -74,7 +74,7 @@
                                 <li class="dropdown-footer clearfix">
                                     <a href="{{ $unseenUserMessagesRoute }}">
                                         <i class="icon-list fa-flip-horizontal"></i>
-                                        مشاهده همه
+                                        সব দেখুন
                                     </a>
                                 </li>
                             @endif
@@ -96,12 +96,12 @@
                                     <form action="{{ $approveAllCommentsRoute }}" method="POST" style="display: inline;">
                                         @csrf
                                         @if($pendingCommentsCount > 0)
-                                            <button type="submit" rel="tooltip" title="تایید همه" data-placement="left" style="padding: 0; border: none; background: none;">
+                                            <button type="submit" rel="tooltip" title="সব অনুমোদন করুন" data-placement="left" style="padding: 0; border: none; background: none;">
                                                 <i class="icon-eye"></i>
                                             </button>
                                         @endif
                                     </form>
-                                    شما {{ $pendingCommentsCount }} نظر تازه دارید.
+                                    আপনি {{ $pendingCommentsCount }} নতুন মন্তব্য এসেছে।
                                 </span>
                             </li>
                             <li class="dropdown-body">
@@ -130,7 +130,7 @@
                                 <li class="dropdown-footer clearfix">
                                     <a href="{{ $pendingCommentsRoute }}">
                                         <i class="icon-list fa-flip-horizontal"></i>
-                                        مشاهده همه
+                                        সব দেখুন
                                     </a>
                                 </li>
                             @endif
@@ -150,7 +150,7 @@
                             <li>
                                 <a href="{{ route(config('app.panel_prefix', 'panel') . '.profile.edit') }}">
                                     <i class="icon-note"></i>
-                                    ویرایش پروفایل
+                                    প্রোফাইল সম্পাদনা
                                 </a>
                             </li>
                         @endcan
@@ -159,7 +159,7 @@
                             <li>
                                 <a href="{{ route(config('app.panel_prefix', 'panel') . '.profile.password.change') }}">
                                     <i class="icon-key"></i>
-                                    تغییر رمز عبور
+                                    পাসওয়ার্ড পরিবর্তন
                                 </a>
                             </li>
                         @endcan
@@ -168,7 +168,7 @@
                             <li>
                                 <a href="{{ route(config('app.panel_prefix', 'panel') . '.profile.email.change') }}">
                                     <i class="icon-envelope-letter"></i>
-                                    تغییر ایمیل
+                                    ইমেইল পরিবর্তন
                                 </a>
                             </li>
                         @endcan
@@ -177,7 +177,7 @@
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); $('#headerLogout').submit()">
                                 <i class="icon-power"></i>
-                                <span>خروج</span>
+                                <span>লগআউট</span>
                                 <form id="headerLogout" action="{{ route('logout') }}" method="post">@csrf</form>
                             </a>
                         </li>

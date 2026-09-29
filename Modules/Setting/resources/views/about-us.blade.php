@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'درباره ما'])
+@extends('panel::layouts.master', ['title' => 'আমাদের সম্পর্কে'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a>تنظیمات</a></li>
-        <li><a>درباره ما</a></li>
+        <li><a>সেটিংস</a></li>
+        <li><a>আমাদের সম্পর্কে</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-question"></i>
-                            درباره ما
+                            আমাদের সম্পর্কে
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -42,12 +42,12 @@
 
                         <fieldset class="row justify-content-center">
                             <div class="form-group col-lg-6">
-                                <label for="title">عنوان <small>(ضروری)</small></label>
+                                <label for="title">শিরোনাম <small>(আবশ্যক)</small></label>
                                 <input id="title" class="form-control" name="title" value="{{ old('title', $about?->title) }}" required>
                             </div>
 
                             <div class="form-group col-12">
-                                <label>محتوا <small>(ضروری)</small></label>
+                                <label>বিষয়বস্তু <small>(আবশ্যক)</small></label>
                                 <div id="toolbar-container"></div>
                                 <div id="editor"></div>
                                 <input type="hidden" id="content" name="content" value="{{ old('content', $about?->content) }}" required>
@@ -57,7 +57,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ثبت اطلاعات درباره ما
+                                        আমাদের সম্পর্কে তথ্য সংরক্ষণ করুন
                                     </button>
                                 </div>
                             </div>
@@ -71,7 +71,6 @@
 
 @push('scripts')
     <script src="{{ asset('admin/assets/plugins/ckeditor5-document-editor/ckeditor.js') }}"></script>
-    <script src="{{ asset('admin/assets/plugins/ckeditor5-document-editor/translations/fa.js') }}"></script>
     <script src="{{ asset('admin/assets/js/pages/UploadAdapter.js') }}"></script>
     <script>
         function CustomUploadAdapterPlugin(editor) {
@@ -88,10 +87,10 @@
             DecoupledEditor
                 .create(document.querySelector('#editor'), {
                     extraPlugins: [CustomUploadAdapterPlugin],
-                    language: 'fa',
-                    direction: 'rtl',
+                    language: 'en',
+                    direction: 'ltr',
                     fontFamily: {
-                        'default': 'IranSans, Arial, sans-serif',
+                        'default': 'Noto Sans Bengali, Arial, sans-serif',
                     },
                 })
                 .then(editor => {
@@ -135,7 +134,7 @@
         }
 
         #toolbar-container * {
-            font-family: 'IranSans';
+            font-family: 'Noto Sans Bengali', Arial, sans-serif;
         }
 
         #editor {

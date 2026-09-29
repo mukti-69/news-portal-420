@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'لیست تصاویر'])
+@extends('panel::layouts.master', ['title' => 'ছবির তালিকা'])
 
 @section('content')
 
     <x-common-breadcrumbs>
-        <li><a>لیست تصاویر</a></li>
+        <li><a>ছবির তালিকা</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,14 +13,14 @@
                     <div class="portlet-title d-flex gap-3">
                         <h3 class="title m-0">
                             <i class="icon-people"></i>
-                            لیست تصاویر
+                            ছবির তালিকা
                         </h3>
                         <form class="d-inline-block search-form">
                             <div class="input-group">
                                 <button class="btn btn-secondary d-flex align-items-center" type="submit">
                                     <i class="icon-magnifier"></i>
                                 </button>
-                                <input name="query" type="text" class="form-control p-2" placeholder="جستجو..." value="{{ request()->get('query') }}">
+                                <input name="query" type="text" class="form-control p-2" placeholder="অনুসন্ধান..." value="{{ request()->get('query') }}">
                                 @foreach(request()->except(['query', 'page']) as $key => $value)
                                     <input name="{{ $key }}" type="hidden" value="{{ $value }}">
                                 @endforeach
@@ -29,7 +29,7 @@
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box ltr">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -39,7 +39,7 @@
                         {{--                        @can('store', $imageClassName)--}}
                         {{--                            <a class="btn btn-sm btn-default btn-round bg-green text-white" rel="tooltip"--}}
                         {{--                               href="{{ route(config('app.panel_prefix', 'panel') . '.images.create') }}"--}}
-                        {{--                               aria-label="ایجاد تصویر‌ جدید" data-bs-original-title="ایجاد تصویر‌ جدید">--}}
+                        {{--                               aria-label="নতুন ছবি যোগ করুন" data-bs-original-title="নতুন ছবি যোগ করুন">--}}
                         {{--                                <i class="icon-plus d-flex justify-content-center align-items-center"></i>--}}
                         {{--                                <div class="paper-ripple">--}}
                         {{--                                    <div class="paper-ripple__background"></div>--}}
@@ -50,7 +50,7 @@
 
                         <!-- Filter box -->
                         <div class="btn-group" rel="tooltip"
-                             aria-label="فیلتر تصاویر" data-bs-original-title="فیلتر تصاویر">
+                             aria-label="ছবি ফিল্টার" data-bs-original-title="ছবি ফিল্টার">
                             <button type="button" class="btn btn-sm btn-default btn-round btn-info text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
                                 <i class=" fas fa-filter d-flex justify-content-center align-items-center"></i>
                                 <div class="paper-ripple">
@@ -76,13 +76,13 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>تصویر</th>
-                                <th>مسیر تصویر</th>
-                                <th>متن جایگزین</th>
-                                <th>کاربر آپلود کننده</th>
-                                <th>تاریخ ایجاد</th>
+                                <th>ছবি</th>
+                                <th>ছবির পাথ</th>
+                                <th>বিকল্প লেখা</th>
+                                <th>আপলোডকারী</th>
+                                <th>তৈরির তারিখ</th>
                                 @can('operations', $imageClassName)
-                                    <th>عملیات</th>
+                                    <th>কার্যক্রম</th>
                                 @endcan
                             </tr>
                             </thead>
@@ -103,7 +103,7 @@
                                                 <div class="d-flex gap-2">
                                                     @can('update', $image)
                                                         <a class="btn btn-sm btn-info btn-icon round d-flex justify-content-center align-items-center"
-                                                           rel="tooltip" aria-label="ویرایش" data-bs-original-title="ویرایش"
+                                                           rel="tooltip" aria-label="সম্পাদনা" data-bs-original-title="সম্পাদনা"
                                                            href="{{ route(config('app.panel_prefix', 'panel') . '.images.edit', $image->id) }}">
                                                             <i class="icon-pencil fa-flip-horizontal"></i>
                                                         </a>
