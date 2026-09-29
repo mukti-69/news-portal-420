@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="bn" dir="ltr">
 
 <head>
     <meta charset="utf-8">
@@ -43,7 +43,7 @@
                     <i class="@yield('pageIcon') border img-circle font-xxxlg p-20"></i>
                 </p>
                 <h1 class="page-error m-t-30">
-                    <sup>خطای</sup>
+                    <sup>ত্রুটি</sup>
                     @yield('code')
                 </h1>
                 <p class="text-center font-lg m-b-20">@yield('message')</p>
@@ -51,7 +51,7 @@
                 <form role="form" class="m-t-30 m-b-30" action="{{ route('search.index') }}">
                     <div class="form-body">
                         <div class="input-group round">
-                            <input name="text" type="text" class="form-control" placeholder="جستجو به شما کمک می کند...">
+                            <input name="text" type="text" class="form-control" placeholder="কিছু খুঁজুন...">
                             <span class="input-group-btn">
                                 <button class="btn btn-success m-0" type="submit">
                                     <i class="icon-magnifier"></i>
@@ -63,7 +63,7 @@
 
                 <hr class="m-b-30 m-t-30">
                 <a href="{{ route('home.index') }}" class="btn btn-default btn-block">
-                    بازگشت
+                    হোমে ফিরে যান
                     <i class="icon-arrow-left font-lg"></i>
                 </a>
 

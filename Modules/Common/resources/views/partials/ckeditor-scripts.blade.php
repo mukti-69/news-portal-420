@@ -1,5 +1,4 @@
 <script src="{{ asset('admin/assets/plugins/ckeditor5-document-editor/ckeditor.js') }}"></script>
-<script src="{{ asset('admin/assets/plugins/ckeditor5-document-editor/translations/fa.js') }}"></script>
 <script src="{{ asset('admin/assets/js/pages/UploadAdapter.js') }}"></script>
 
 <script>
@@ -13,10 +12,10 @@
         DecoupledEditor
             .create(document.querySelector('#editor'), {
                 extraPlugins: [CustomUploadAdapterPlugin],
-                language: 'fa',
-                direction: 'rtl',
+                language: 'en',
+                direction: 'ltr',
                 fontFamily: {
-                    'default': 'IranSans, Arial, sans-serif',
+                    'default': 'Noto Sans Bengali, Arial, sans-serif',
                 },
             })
             .then(editor => {

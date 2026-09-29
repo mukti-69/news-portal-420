@@ -44,23 +44,23 @@ $( "#advanced-form" ).validate( {
         agree: "required"
     },
     messages: {
-        firstname: "لطفا نام را وارد کنید",
-        lastname: "لطفا نام خانوادگی را وارد کنید",
+        firstname: "অনুগ্রহ করে নাম লিখুন",
+        lastname: "অনুগ্রহ করে পদবি লিখুন",
         username: {
-                required: "نام کاربری اجباری است",
-                minlength: "نام کاربری باید دست کم 2 کاراکتر باشد"
+                required: "ইউজারনেম আবশ্যক",
+                minlength: "ইউজারনেম কমপক্ষে ২ অক্ষরের হতে হবে"
         },
         password: {
-                required: "رمز عبور را وارد نمائید",
-                minlength: "رمز عبور دست کم باید 5 کاراکتر باشد"
+                required: "পাসওয়ার্ড লিখুন",
+                minlength: "পাসওয়ার্ড কমপক্ষে ৫ অক্ষরের হতে হবে"
         },
         confirm_password: {
-                required: "تائید رمز عبور را وارد نمائید",
-                minlength: "تائید رمز عبور دست کم باید 5 کاراکتر باشد",
-                equalTo: "رمزهای عبور یکسان نیستند"
+                required: "পাসওয়ার্ড আবার লিখুন",
+                minlength: "পাসওয়ার্ড কমপক্ষে ৫ অক্ষরের হতে হবে",
+                equalTo: "পাসওয়ার্ড দুটি মেলেনি"
         },
-        email: "نشانی رایانامه صحیح نیست",
-        agree: "تیک تائید قوانین را بزنید"
+        email: "ইমেইল ঠিকানাটি সঠিক নয়",
+        agree: "নিয়ম ও শর্তাবলীতে টিক দিন"
     },
     errorElement: "em",
     errorPlacement: function ( error, element ) {

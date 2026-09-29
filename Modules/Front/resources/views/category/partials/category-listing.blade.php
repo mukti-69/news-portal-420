@@ -21,7 +21,7 @@
 
     @if($articles->count() < 1)
         <h3 class="alert-warning" style="padding: 3rem; margin: 0 1rem; text-align: center; border-radius: 5px;">
-            مطلبی برای دسته‌بندی موردنظر یافت نشد!
+            এই বিভাগে কোনো খবর পাওয়া যায়নি!
         </h3>
     @endif
 

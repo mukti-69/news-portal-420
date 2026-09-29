@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'آمار بازدیدها'])
+@extends('panel::layouts.master', ['title' => 'ভিজিট পরিসংখ্যান'])
 
 @section('content')
 
     <x-common-breadcrumbs>
-        <li><a>آمار بازدیدها</a></li>
+        <li><a>ভিজিট পরিসংখ্যান</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title d-flex gap-3">
                         <h3 class="title m-0">
                             <i class="icon-eye"></i>
-                            آمار بازدیدها
+                            ভিজিট পরিসংখ্যান
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box ltr">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -33,37 +33,37 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>بازه زمانی</th>
-                                <th>تعداد بازدید</th>
+                                <th>সময়সীমা</th>
+                                <th>ভিজিট সংখ্যা</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>یک ساعت گذشته</td>
+                                <td>গত ১ ঘণ্টা</td>
                                 <td>{{ $visitCounts['hourly'] }}</td>
                             </tr>
                             <tr>
-                                <td>ده ساعت گذشته</td>
+                                <td>গত ১০ ঘণ্টা</td>
                                 <td>{{ $visitCounts['ten_hours'] }}</td>
                             </tr>
                             <tr>
-                                <td>یک روز گذشته</td>
+                                <td>গত ১ দিন</td>
                                 <td>{{ $visitCounts['daily'] }}</td>
                             </tr>
                             <tr>
-                                <td>یک هفته گذشته</td>
+                                <td>গত ১ সপ্তাহ</td>
                                 <td>{{ $visitCounts['weekly'] }}</td>
                             </tr>
                             <tr>
-                                <td>یک ماه گذشته</td>
+                                <td>গত ১ মাস</td>
                                 <td>{{ $visitCounts['monthly'] }}</td>
                             </tr>
                             <tr>
-                                <td>یک سال گذشته</td>
+                                <td>গত ১ বছর</td>
                                 <td>{{ $visitCounts['yearly'] }}</td>
                             </tr>
                             <tr>
-                                <td>کل بازدیدها</td>
+                                <td>মোট ভিজিট</td>
                                 <td>{{ $visitCounts['all'] }}</td>
                             </tr>
                             </tbody>

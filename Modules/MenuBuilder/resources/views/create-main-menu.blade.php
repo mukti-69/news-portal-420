@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ایجاد منوی اصلی جدید'])
+@extends('panel::layouts.master', ['title' => 'নতুন প্রধান মেনু তৈরি করুন'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.menus.index') }}">لیست منوها</a></li>
-        <li><a>ایجاد منوی اصلی جدید</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.menus.index') }}">মেনুর তালিকা</a></li>
+        <li><a>নতুন প্রধান মেনু তৈরি করুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-menu"></i>
-                            ایجاد منوی اصلی جدید
+                            নতুন প্রধান মেনু তৈরি করুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -35,22 +35,22 @@
 
                         <fieldset class="row justify-content-center">
                             <div class="form-group col-lg-6">
-                                <label for="name">نام <small>(ضروری)</small></label>
+                                <label for="name">নাম <small>(আবশ্যক)</small></label>
                                 <input id="name" class="form-control" name="name" type="text" required value="{{ old('name') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="url">آدرس <small>(ضروری)</small></label>
+                                <label for="url">ঠিকানা <small>(আবশ্যক)</small></label>
                                 <input id="url" class="form-control" name="url" type="text" value="{{ old('url') }}" required>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="position">ترتیب قرارگیری <small>(ضروری)</small></label>
+                                <label for="position">ক্রম <small>(আবশ্যক)</small></label>
                                 <input id="position" class="form-control" name="position" type="number" required value="{{ old('position') }}">
-                                <p class="small">{{ 'بزرگ‌ترین ترتیب ثبت شده: ' . $latestPosition}}</p>
+                                <p class="small">{{ 'সর্বোচ্চ নিবন্ধিত ক্রম: ' . $latestPosition}}</p>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="parent_id">منوی والد</label>
+                                <label for="parent_id">প্যারেন্ট মেনু</label>
                                 <select id="parent_id" class="form-control select2" name="parent_id">
-                                    <option value="">انتخاب منوی والد</option>
+                                    <option value="">প্যারেন্ট মেনু নির্বাচন করুন</option>
                                     @foreach($parentMenus as $menu)
                                         <option value="{{ $menu->id }}" @if((int) old('parent_id') === $menu->id) selected @endif>{{ $menu->name }}</option>
                                     @endforeach
@@ -58,12 +58,12 @@
                             </div>
                             <div class="form-group text-center col-lg-12">
                                 <input id="status" class="form-control" name="status" type="checkbox" @if(old('status')) checked @endif>
-                                <label for="status">وضعیت</label>
+                                <label for="status">অবস্থা</label>
                             </div>
                             <div class="form-group col-lg-6">
                                 <button class="btn btn-success btn-block">
                                     <i class="icon-check"></i>
-                                    ایجاد منوی اصلی جدید
+                                    নতুন প্রধান মেনু তৈরি করুন
                                 </button>
                             </div>
                         </fieldset>
@@ -77,7 +77,7 @@
 @push('scripts')
     <!-- BEGIN PAGE JAVASCRIPT -->
     <script src="{{ asset('admin/assets/plugins/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/fa.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/select2/dist/js/i18n/bn.js') }}"></script>
     <script src="{{ asset('admin/assets/js/pages/select2.js') }}"></script>
     <!-- END PAGE JAVASCRIPT -->
 
@@ -104,7 +104,7 @@
         $("#main-form").validate();
 
         $(".select2").select2({
-            rtl: true
+            language: "bn"
         });
     </script>
 @endpush

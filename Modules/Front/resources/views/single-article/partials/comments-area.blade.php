@@ -1,5 +1,5 @@
 <div id="comments" class="comments-area block">
-    <h3 class="block-title"><span>{{ $article->approvedComments->count() }} دیدگاه</span></h3>
+    <h3 class="block-title"><span>{{ $article->approvedComments->count() }} মন্তব্য</span></h3>
 
     <ul class="comments-list">
         <li>
@@ -10,7 +10,7 @@
                         <img class="comment-avatar pull-left" src="{{ $comment->commenterImageLink() }}" alt="{{ $comment->commenterName() }}">
                         <div class="comment-body">
                             <div class="meta-data">
-                                <span class="comment-author">{{ ($comment->isGuest() ? 'کاربر مهمان: ' : '') . $comment->commenterName() }}</span>
+                                <span class="comment-author">{{ ($comment->isGuest() ? 'অতিথি ব্যবহারকারী: ' : '') . $comment->commenterName() }}</span>
                                 <span class="comment-date pull-right">
                                     <i class="fa fa-clock-o"></i>
                                     <span>{{ jalalian()->forge($comment->created_at)->ago() }}</span>
@@ -22,9 +22,9 @@
                                 </x-markdown>
                             </div>
                             <div class="text-left">
-                                <a class="comment-reply" data-toggle="modal" data-target="#commentReplyModal{{ $comment->id }}">پاسخ</a>
+                                <a class="comment-reply" data-toggle="modal" data-target="#commentReplyModal{{ $comment->id }}">উত্তর</a>
                                 @canany('update', $comment)
-                                    <a class="comment-edit" data-toggle="modal" data-target="#commentEditModal{{ $comment->id }}" style="margin-right: 1rem ">ویرایش</a>
+                                    <a class="comment-edit" data-toggle="modal" data-target="#commentEditModal{{ $comment->id }}" style="margin-right: 1rem ">সম্পাদনা</a>
                                 @endcanany
 
                                 @canany('delete', $comment)
@@ -32,7 +32,7 @@
                                         @method('DELETE')
                                         @csrf
                                     </form>
-                                    <a onclick="event.preventDefault(); document.querySelector('#deleteForm{{ $comment->id }}').submit()" class="comment-delete">حذف</a>
+                                    <a onclick="event.preventDefault(); document.querySelector('#deleteForm{{ $comment->id }}').submit()" class="comment-delete">মুছুন</a>
                                 @endcanany
                             </div>
 
@@ -43,7 +43,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
-                                            <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">پاسخ خود به دیدگاه موردنظر را بیان کنید</h4>
+                                            <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">এই মন্তব্যের উত্তর লিখুন</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="flex-shrink: 0;"><span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -62,7 +62,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
-                                                <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">ویرایش دیدگاه</h4>
+                                                <h4 class="modal-title" id="commentModalLabel" style="flex: 1;">মন্তব্য সম্পাদনা</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="flex-shrink: 0;"><span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -78,7 +78,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                            <textarea class="form-control required-field" name="comment" id="comment" placeholder="دیدگاه شما">{{ old('comment',
+                                                            <textarea class="form-control required-field" name="comment" id="comment" placeholder="আপনার মন্তব্য">{{ old('comment',
                                                             $comment->comment)
                                                             }}</textarea>
                                                             </div>
@@ -86,7 +86,7 @@
                                                     </div>
 
                                                     <div class="clearfix">
-                                                        <button class="comments-btn btn btn-primary" type="submit">ارسال دیدگاه</button>
+                                                        <button class="comments-btn btn btn-primary" type="submit">মন্তব্য পাঠান</button>
                                                     </div>
                                                 </form>
                                             </div>

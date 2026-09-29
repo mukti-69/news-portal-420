@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ایجاد تگ جدید'])
+@extends('panel::layouts.master', ['title' => 'নতুন ট্যাগ তৈরি করুন'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.tags.index') }}">لیست تگ‌ها</a></li>
-        <li><a>ایجاد تگ جدید</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.tags.index') }}">ট্যাগের তালিকা</a></li>
+        <li><a>নতুন ট্যাগ তৈরি করুন</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-user-follow"></i>
-                            ایجاد تگ جدید
+                            নতুন ট্যাগ তৈরি করুন
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -34,11 +34,11 @@
 
                         <fieldset class="row justify-content-center">
                             <div class="form-group col-lg-6">
-                                <label for="name">نام <small>(ضروری)</small></label>
+                                <label for="name">নাম <small>(আবশ্যক)</small></label>
                                 <input id="name" class="form-control" name="name" type="text" required value="{{ old('name') }}">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label for="slug">slug <small>(ضروری)</small> </label>
+                                <label for="slug">slug <small>(আবশ্যক)</small> </label>
                                 <input id="slug" class="form-control" name="slug" type="text" required value="{{ old('slug') }}">
                             </div>
                             <div class="col-12 row form-group justify-content-center">
@@ -46,12 +46,12 @@
                                     @can(config('permissions_list.TAG_HOTNESS', false))
                                         <div class="text-center col-6">
                                             <input id="hotness" class="form-control" name="hotness" type="checkbox" @if(old('hotness')) checked @endif>
-                                            <label for="hotness">موضوع داغ</label>
+                                            <label for="hotness">আলোচিত বিষয়</label>
                                         </div>
                                     @endcan
                                     <div class="text-center col-6">
                                         <input id="status" class="form-control" name="status" type="checkbox" @if(old('status')) checked @endif>
-                                        <label for="status">وضعیت</label>
+                                        <label for="status">অবস্থা</label>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ایجاد تگ جدید
+                                        নতুন ট্যাগ তৈরি করুন
                                     </button>
                                 </div>
                             </div>

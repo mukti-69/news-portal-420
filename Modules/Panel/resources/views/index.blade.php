@@ -1,8 +1,8 @@
-@extends('panel::layouts.master', ['title' => 'پنل کاربری'])
+@extends('panel::layouts.master', ['title' => 'ব্যবহারকারী প্যানেল'])
 
 @section('content')
     <x-common-breadcrumbs :noprefix="true">
-        <li><a>پیشخوان</a></li>
+        <li><a>ড্যাশবোর্ড</a></li>
     </x-common-breadcrumbs>
 
     {{-- Header Stats --}}
@@ -44,9 +44,9 @@
         Morris.Donut({
             element: 'site-visits-yearly',
             data: [
-                {value: {{ $visitsCount['yearly'] }}, label: 'سال', formatted: '{{ $visitsCount['yearly'] }} نفر'},
-                {value: {{ $visitsCount['monthly'] }}, label: 'ماه', formatted: '{{ $visitsCount['monthly'] }} نفر'},
-                {value: {{ $visitsCount['weekly'] }}, label: 'هفته', formatted: '{{ $visitsCount['weekly'] }} نفر'},
+                {value: {{ $visitsCount['yearly'] }}, label: 'বছর', formatted: '{{ $visitsCount['yearly'] }} জন'},
+                {value: {{ $visitsCount['monthly'] }}, label: 'মাস', formatted: '{{ $visitsCount['monthly'] }} জন'},
+                {value: {{ $visitsCount['weekly'] }}, label: 'সপ্তাহ', formatted: '{{ $visitsCount['weekly'] }} জন'},
             ],
             colors: [
                 '#1e4572',
@@ -62,9 +62,9 @@
         Morris.Donut({
             element: 'site-visits-daily',
             data: [
-                {value: {{ $visitsCount['daily'] }}, label: 'روز', formatted: '{{ $visitsCount['daily'] }} نفر'},
-                {value: {{ $visitsCount['ten_hours'] }}, label: 'ده ساعت', formatted: '{{ $visitsCount['ten_hours'] }} نفر'},
-                {value: {{ $visitsCount['hourly'] }}, label: 'یک ساعت', formatted: '{{ $visitsCount['hourly'] }} نفر'},
+                {value: {{ $visitsCount['daily'] }}, label: 'দিন', formatted: '{{ $visitsCount['daily'] }} জন'},
+                {value: {{ $visitsCount['ten_hours'] }}, label: '১০ ঘণ্টা', formatted: '{{ $visitsCount['ten_hours'] }} জন'},
+                {value: {{ $visitsCount['hourly'] }}, label: '১ ঘণ্টা', formatted: '{{ $visitsCount['hourly'] }} জন'},
             ],
             colors: [
                 '#ffc107',
@@ -81,9 +81,9 @@
         Morris.Donut({
             element: 'articles-visits-yearly',
             data: [
-                {value: {{ $articlesVisitsCount['year'] }}, label: 'سال', formatted: '{{ $articlesVisitsCount['year'] }} نفر'},
-                {value: {{ $articlesVisitsCount['month'] }}, label: 'ماه', formatted: '{{ $articlesVisitsCount['month'] }} نفر'},
-                {value: {{ $articlesVisitsCount['week'] }}, label: 'هفته', formatted: '{{ $articlesVisitsCount['week'] }} نفر'},
+                {value: {{ $articlesVisitsCount['year'] }}, label: 'বছর', formatted: '{{ $articlesVisitsCount['year'] }} জন'},
+                {value: {{ $articlesVisitsCount['month'] }}, label: 'মাস', formatted: '{{ $articlesVisitsCount['month'] }} জন'},
+                {value: {{ $articlesVisitsCount['week'] }}, label: 'সপ্তাহ', formatted: '{{ $articlesVisitsCount['week'] }} জন'},
             ],
             colors: [
                 '#1e4572',
@@ -99,9 +99,9 @@
         Morris.Donut({
             element: 'articles-visits-daily',
             data: [
-                {value: {{ $articlesVisitsCount['day'] }}, label: 'روز', formatted: '{{ $articlesVisitsCount['day'] }} نفر'},
-                {value: {{ $articlesVisitsCount['10hours'] }}, label: 'ده ساعت', formatted: '{{ $articlesVisitsCount['10hours'] }} نفر'},
-                {value: {{ $articlesVisitsCount['hour'] }}, label: 'یک ساعت', formatted: '{{ $articlesVisitsCount['hour'] }} نفر'},
+                {value: {{ $articlesVisitsCount['day'] }}, label: 'দিন', formatted: '{{ $articlesVisitsCount['day'] }} জন'},
+                {value: {{ $articlesVisitsCount['10hours'] }}, label: '১০ ঘণ্টা', formatted: '{{ $articlesVisitsCount['10hours'] }} জন'},
+                {value: {{ $articlesVisitsCount['hour'] }}, label: '১ ঘণ্টা', formatted: '{{ $articlesVisitsCount['hour'] }} জন'},
             ],
             colors: [
                 '#ffc107',

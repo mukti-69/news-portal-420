@@ -2,7 +2,7 @@
 
 @section('content')
     <x-front-breadcrumbs>
-        <li>جستجو</li>
+        <li>অনুসন্ধান</li>
         <li>{{ $searchText }}</li>
     </x-front-breadcrumbs>
 

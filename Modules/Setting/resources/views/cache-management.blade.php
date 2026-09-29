@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'مدیریت حافظه پنهان'])
+@extends('panel::layouts.master', ['title' => 'ক্যাশ ব্যবস্থাপনা'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a>تنظیمات</a></li>
-        <li><a>مدیریت حافظه پنهان</a></li>
+        <li><a>সেটিংস</a></li>
+        <li><a>ক্যাশ ব্যবস্থাপনা</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-layers"></i>
-                            مدیریت حافظه پنهان
+                            ক্যাশ ব্যবস্থাপনা
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -44,7 +44,7 @@
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-block">
                                                 <i class="icon-close"></i>
-                                                پاک کردن تمام حافظه‌های پنهان
+                                                সব ক্যাশ পরিষ্কার করুন
                                             </button>
                                         </form>
                                     </div>
@@ -56,7 +56,7 @@
                                         @csrf
                                         <button type="submit" class="btn btn-warning btn-block">
                                             <i class="icon-trash"></i>
-                                            پاک کردن حافظه پنهان داده‌های برنامه
+                                            অ্যাপ ডেটা ক্যাশ পরিষ্কার করুন
                                         </button>
                                     </form>
                                 </div>
@@ -67,7 +67,7 @@
                                         @csrf
                                         <button type="submit" class="btn btn-warning btn-block">
                                             <i class="icon-eye"></i>
-                                            پاک کردن حافظه پنهان قالب‌ها
+                                            ভিউ ক্যাশ পরিষ্কার করুন
                                         </button>
                                     </form>
                                 </div>
@@ -78,7 +78,7 @@
                                         @csrf
                                         <button type="submit" class="btn btn-warning btn-block">
                                             <i class="icon-settings"></i>
-                                            پاک کردن حافظه پنهان کانفیگ‌ها
+                                            কনফিগ ক্যাশ পরিষ্কার করুন
                                         </button>
                                     </form>
                                 </div>
@@ -89,7 +89,7 @@
                                         @csrf
                                         <button type="submit" class="btn btn-warning btn-block">
                                             <i class="icon-map"></i>
-                                            پاک کردن حافظه پنهان مسیرها
+                                            রুট ক্যাশ পরিষ্কার করুন
                                         </button>
                                     </form>
                                 </div>

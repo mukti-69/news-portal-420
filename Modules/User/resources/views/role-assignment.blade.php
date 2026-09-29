@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'اختصاص نقش به کاربر'])
+@extends('panel::layouts.master', ['title' => 'ব্যবহারকারীকে রোল নির্ধারণ'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.users.index') }}">لیست کاربران</a></li>
-        <li><a>اختصاص نقش به کاربر</a></li>
+        <li><a href="{{ route(config('app.panel_prefix', 'panel') . '.users.index') }}">ব্যবহারকারীর তালিকা</a></li>
+        <li><a>ব্যবহারকারীকে রোল নির্ধারণ</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-user-follow"></i>
-                            اختصاص نقش به {{ $user->full_name }}
+                            রোল নির্ধারণ: {{ $user->full_name }}
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -52,7 +52,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        اختصاص نقش به کاربر
+                                        ব্যবহারকারীকে রোল নির্ধারণ
                                     </button>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
             },
             messages: {
                 password_confirmation: {
-                    equalTo: "رمزهای عبور یکسان نیستند"
+                    equalTo: "পাসওয়ার্ড দুটি মেলেনি"
                 }
             }
         });

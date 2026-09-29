@@ -6,12 +6,12 @@
                 <div class="portlet-title">
                     <h3 class="title">
                         <i class="icon-picture"></i>
-                        تصاویر
+                        ছবি
                     </h3>
                 </div><!-- /.portlet-title -->
                 <div class="buttons-box">
                     <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                       aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                       aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                         <i class="icon-size-fullscreen"></i>
                         <div class="paper-ripple">
                             <div class="paper-ripple__background"></div>
@@ -19,7 +19,7 @@
                         </div>
                     </a>
                     <a class="btn btn-sm btn-default btn-round btn-close" rel="tooltip"
-                       aria-label="بستن" data-bs-original-title="بستن">
+                       aria-label="বন্ধ করুন" data-bs-original-title="বন্ধ করুন">
                         <i class="icon-trash"></i>
                         <div class="paper-ripple">
                             <div class="paper-ripple__background"></div>
@@ -34,13 +34,13 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>تصویر</th>
-                            <th>مسیر تصویر</th>
-                            <th>متن جایگزین</th>
-                            <th>کاربر آپلود کننده</th>
-                            <th>تاریخ ایجاد</th>
+                            <th>ছবি</th>
+                            <th>ছবির পাথ</th>
+                            <th>বিকল্প লেখা</th>
+                            <th>আপলোডকারী</th>
+                            <th>তৈরির তারিখ</th>
                             @can('operations', $imageClassName)
-                                <th>عملیات</th>
+                                <th>কার্যক্রম</th>
                             @endcan
                         </tr>
                         </thead>
@@ -61,7 +61,7 @@
                                             <div class="d-flex gap-2">
                                                 @can('update', $image)
                                                     <a class="btn btn-sm btn-info btn-icon round d-flex justify-content-center align-items-center"
-                                                       rel="tooltip" aria-label="ویرایش" data-bs-original-title="ویرایش"
+                                                       rel="tooltip" aria-label="সম্পাদনা" data-bs-original-title="সম্পাদনা"
                                                        href="{{ route(config('app.panel_prefix', 'panel') . '.images.edit', $image->id) }}">
                                                         <i class="icon-pencil fa-flip-horizontal"></i>
                                                     </a>

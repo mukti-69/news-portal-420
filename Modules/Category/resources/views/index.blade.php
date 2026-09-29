@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'لیست دسته‌بندی‌ها'])
+@extends('panel::layouts.master', ['title' => 'বিভাগের তালিকা'])
 
 @section('content')
 
     <x-common-breadcrumbs>
-        <li><a>لیست دسته‌بندی‌ها</a></li>
+        <li><a>বিভাগের তালিকা</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,20 +13,20 @@
                     <div class="portlet-title d-flex gap-3">
                         <h3 class="title m-0">
                             <i class="icon-people"></i>
-                            لیست دسته‌بندی‌ها
+                            বিভাগের তালিকা
                         </h3>
                         <form class="d-inline-block search-form">
                             <div class="input-group">
                                 <button class="btn btn-secondary d-flex align-items-center" type="submit">
                                     <i class="icon-magnifier"></i>
                                 </button>
-                                <input name="query" type="text" class="form-control p-2" placeholder="جستجو..." value="{{ request()->get('query') }}">
+                                <input name="query" type="text" class="form-control p-2" placeholder="অনুসন্ধান..." value="{{ request()->get('query') }}">
                             </div>
                         </form>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box ltr">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -36,7 +36,7 @@
                         @can(config('permissions_list.CATEGORY_STORE', false))
                             <a class="btn btn-sm btn-default btn-round bg-green text-white" rel="tooltip"
                                href="{{ route(config('app.panel_prefix', 'panel') . '.categories.create') }}"
-                               aria-label="ایجاد دسته‌بندی‌ جدید" data-bs-original-title="ایجاد دسته‌بندی‌ جدید">
+                               aria-label="নতুন বিভাগ তৈরি করুন" data-bs-original-title="নতুন বিভাগ তৈরি করুন">
                                 <i class="icon-plus d-flex justify-content-center align-items-center"></i>
                                 <div class="paper-ripple">
                                     <div class="paper-ripple__background"></div>
@@ -52,18 +52,18 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>تصویر شاخص</th>
-                                <th>نام</th>
+                                <th>ফিচার্ড ছবি</th>
+                                <th>নাম</th>
                                 <th>slug</th>
-                                <th>دسته‌بندی والد</th>
-                                <th>تاریخ ایجاد</th>
-                                <th>وضعیت</th>
+                                <th>প্যারেন্ট বিভাগ</th>
+                                <th>তৈরির তারিখ</th>
+                                <th>অবস্থা</th>
                                 @canany([
                                     config('permissions_list.CATEGORY_UPDATE', false),
                                     config('permissions_list.CATEGORY_DESTROY', false),
                                     config('permissions_list.SEO_MANAGEMENT', false)
                                 ])
-                                    <th>عملیات</th>
+                                    <th>কার্যক্রম</th>
                                 @endcanany
                             </tr>
                             </thead>
@@ -88,7 +88,7 @@
                                             <div class="d-flex gap-2">
                                                 @can(config('permissions_list.CATEGORY_UPDATE', false))
                                                     <a class="btn btn-sm btn-info btn-icon round d-flex justify-content-center align-items-center"
-                                                       rel="tooltip" aria-label="ویرایش" data-bs-original-title="ویرایش"
+                                                       rel="tooltip" aria-label="সম্পাদনা" data-bs-original-title="সম্পাদনা"
                                                        href="{{ route(config('app.panel_prefix', 'panel') . '.categories.edit', $category->id) }}">
                                                         <i class="icon-pencil fa-flip-horizontal"></i>
                                                     </a>

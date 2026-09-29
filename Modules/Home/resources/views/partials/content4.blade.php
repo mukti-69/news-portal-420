@@ -1,6 +1,6 @@
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
     <div class="more-news block color-red">
-        <h3 class="block-title"><span>خبرهای بیشتر</span></h3>
+        <h3 class="block-title"><span>আরও খবর</span></h3>
 
         <div id="more-news-slide" class="owl-carousel owl-theme more-news-slide">
             @foreach($fourth_content['latest_articles']->chunk(4) as $articles)

@@ -1,9 +1,9 @@
-@extends('panel::layouts.master', ['title' => 'ثبت آدرس شبکه‌های اجتماعی کاربر'])
+@extends('panel::layouts.master', ['title' => 'ব্যবহারকারীর সোশ্যাল মিডিয়া লিংক সংরক্ষণ'])
 
 @section('content')
     <x-common-breadcrumbs>
-        <li><a>پروفایل</a></li>
-        <li><a>ثبت آدرس شبکه‌های اجتماعی کاربر</a></li>
+        <li><a>প্রোফাইল</a></li>
+        <li><a>ব্যবহারকারীর সোশ্যাল মিডিয়া লিংক সংরক্ষণ</a></li>
     </x-common-breadcrumbs>
 
     <div class="row pe-0">
@@ -13,12 +13,12 @@
                     <div class="portlet-title">
                         <h3 class="title">
                             <i class="icon-link"></i>
-                            ثبت آدرس شبکه‌های اجتماعی کاربر
+                            ব্যবহারকারীর সোশ্যাল মিডিয়া লিংক সংরক্ষণ
                         </h3>
                     </div><!-- /.portlet-title -->
                     <div class="buttons-box">
                         <a class="btn btn-sm btn-default btn-round btn-fullscreen" rel="tooltip"
-                           aria-label="تمام صفحه" data-bs-original-title="تمام صفحه">
+                           aria-label="ফুলস্ক্রিন" data-bs-original-title="ফুলস্ক্রিন">
                             <i class="icon-size-fullscreen d-flex justify-content-center align-items-center"></i>
                             <div class="paper-ripple">
                                 <div class="paper-ripple__background"></div>
@@ -53,7 +53,7 @@
                                 <div class="col-sm-6 col-sm-offset-4 mx-auto">
                                     <button class="btn btn-success btn-block">
                                         <i class="icon-check"></i>
-                                        ثبت آدرس شبکه‌های اجتماعی
+                                        সোশ্যাল মিডিয়া লিংক সংরক্ষণ
                                     </button>
                                 </div>
                             </div>

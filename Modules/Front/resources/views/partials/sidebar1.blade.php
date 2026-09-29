@@ -1,7 +1,7 @@
 <div class="{{ $sidebar_classes ?? 'col-xs-12' }}" style="{{ $side_styles ?? 'margin-bottom: 3rem;' }}">
     <div class="sidebar sidebar-right first-sidebar">
         <div class="widget color-default m-bottom-0">
-            <h3 class="block-title"><span>اخبار پربازدید</span></h3>
+            <h3 class="block-title"><span>সর্বাধিক পঠিত</span></h3>
             <div class="post-overlay-style clearfix">
                 <div class="post-thumb">
                     <a
