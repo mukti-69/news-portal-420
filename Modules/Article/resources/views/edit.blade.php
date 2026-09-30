@@ -93,11 +93,11 @@
                                     <div class="help-block"></div>
                                 </div>
                                 <div class="form-group col-12 text-center">
-                                    <img class="mb-2" src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->alt_text }}" style="max-width: 300px;
+                                    <img class="mb-2" src="{{ $article->image->url() }}" alt="{{ $article->image->alt_text }}" style="max-width: 300px;
                                     max-height:
                                     300px">
                                     <div>
-                                        {{ asset('storage/' . $article->image->file_path) }}
+                                        {{ $article->image->url() }}
                                     </div>
                                 </div>
                             </div>

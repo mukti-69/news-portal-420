@@ -6,7 +6,7 @@
             <div class="post-block-style top-larget-post clearfix">
                 <div class="post-thumb">
                     <a>
-                        <img class="img-responsive" src="{{ asset('storage/' . $category->image->file_path) }}" alt="{{ $category->image->alt_text }}" style="height: 490px">
+                        <img class="img-responsive" src="{{ $category->image->url() }}" alt="{{ $category->image->alt_text }}" style="height: 490px">
                     </a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="post-block-style post-grid clearfix">
                     <div class="post-thumb">
                         <a href="{{ $article->getUrl() }}">
-                            <img class="img-responsive" src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->alt_text }}" style="height: 240px">
+                            <img class="img-responsive" src="{{ $article->image->url() }}" alt="{{ $article->image->alt_text }}" style="height: 240px">
                         </a>
                     </div>
                     <a class="post-cat" href="{{ route('categories.show', $category->slug) }}">{{ $category->name }}</a>

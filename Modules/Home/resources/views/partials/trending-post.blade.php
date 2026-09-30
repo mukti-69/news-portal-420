@@ -7,7 +7,7 @@
 
                     @foreach($trending_posts['latest_articles'] as $article)
                         <div class="item">
-                            <img src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->alt_text }}">
+                            <img src="{{ $article->image->url() }}" alt="{{ $article->image->alt_text }}">
                             <div class="featured-post">
                                 <div class="post-content">
                                     <a class="post-cat" href="{{ route('categories.show', $article->category->slug) }}">{{ $article->category->name }}</a>
@@ -29,8 +29,8 @@
                         <div class="post-overlay-style contentTop hot-post-top clearfix">
                             <div class="post-thumb">
                                 <a href="{{ $trending_posts['first_editor_choice']->getUrl() }}">
-                                    <img class="img-responsive" src="{{ asset('storage/' . $trending_posts['first_editor_choice']->image->file_path) }}"
-                                         alt="{{ asset('storage/' . $trending_posts['first_editor_choice']->image->alt_text) }}">
+                                    <img class="img-responsive" src="{{ $trending_posts['first_editor_choice']->image->url() }}"
+                                         alt="{{ $trending_posts['first_editor_choice']->image->alt_text }}">
                                 </a>
                             </div>
                             <div class="post-content">
@@ -50,8 +50,8 @@
                             <div class="post-overlay-style contentTop hot-post-bottom clearfix">
                                 <div class="post-thumb">
                                     <a href="{{ $editor_choice->getUrl() }}">
-                                        <img class="img-responsive" src="{{ asset('storage/' . $editor_choice->image->file_path) }}"
-                                             alt="{{ asset('storage/' . $editor_choice->image->alt_text) }}">
+                                        <img class="img-responsive" src="{{ $editor_choice->image->url() }}"
+                                             alt="{{ $editor_choice->image->alt_text }}">
                                     </a>
                                 </div>
                                 <div class="post-content">

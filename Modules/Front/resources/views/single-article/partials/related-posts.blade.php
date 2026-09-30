@@ -7,7 +7,7 @@
                 <div class="post-block-style clearfix">
                     <div class="post-thumb">
                         <a href="{{ $related_article->getUrl() }}">
-                            <img class="img-responsive" src="{{ asset('storage/' . $related_article->image->file_path) }}" alt="{{ $related_article->image->alt_text }}">
+                            <img class="img-responsive" src="{{ $related_article->image->url() }}" alt="{{ $related_article->image->alt_text }}">
                         </a>
                     </div>
                     <a class="post-cat" href="{{ route('categories.show', $related_article->category->slug) }}">{{ $related_article->category->name }}</a>

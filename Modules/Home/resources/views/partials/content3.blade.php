@@ -8,7 +8,7 @@
                         <div class="post-overlay-style clearfix">
                             <div class="post-thumb">
                                 <a href="{{ route('categories.show', $category->slug) }}">
-                                    <img class="img-responsive third-img-category" src="{{ asset('storage/' . $category->image->file_path) }}" alt="{{ $category->image->alt_text }}">
+                                    <img class="img-responsive third-img-category" src="{{ $category->image->url() }}" alt="{{ $category->image->alt_text }}">
                                 </a>
                             </div>
 
@@ -26,7 +26,7 @@
                                         <div class="post-block-style post-float clearfix">
                                             <div class="post-thumb">
                                                 <a href="{{ $article->getUrl() }}">
-                                                    <img class="img-responsive" src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->elt_text }}">
+                                                    <img class="img-responsive" src="{{ $article->image->url() }}" alt="{{ $article->image->elt_text }}">
                                                 </a>
                                             </div><!-- Post thumb end -->
 

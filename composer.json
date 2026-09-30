@@ -29,7 +29,8 @@
         "spatie/laravel-medialibrary": "^11.7",
         "spatie/laravel-permission": "^6.4",
         "spatie/laravel-sitemap": "^7.2",
-        "torann/geoip": "^3.0"
+        "torann/geoip": "^3.0",
+        "yoelpc4/laravel-cloudinary": "^4.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",

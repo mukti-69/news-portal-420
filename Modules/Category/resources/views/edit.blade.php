@@ -70,11 +70,11 @@
                                     <div class="help-block"></div>
                                 </div>
                                 <div class="form-group col-12 text-center">
-                                    <img class="mb-2" src="{{ asset('storage/' . $category->image->file_path) }}" alt="{{ $category->image->alt_text }}" style="max-width: 300px;
+                                    <img class="mb-2" src="{{ $category->image->url() }}" alt="{{ $category->image->alt_text }}" style="max-width: 300px;
                                     max-height:
                                     300px">
                                     <div>
-                                        {{ asset('storage/' . $category->image->file_path) }}
+                                        {{ $category->image->url() }}
                                     </div>
                                 </div>
                             </div>

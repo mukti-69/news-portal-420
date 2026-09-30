@@ -11,8 +11,8 @@
         </div>
     @else
         <div class="post-media post-featured-image">
-            <a href="{{ asset('storage/' . $article->image->file_path) }}" class="gallery-popup">
-                <img src="{{ asset('storage/' . $article->image->file_path) }}" class="img-responsive" alt="{{ $article->image->alt_text }}" style="max-height: 60rem; min-height: 10rem">
+            <a href="{{ $article->image->url() }}" class="gallery-popup">
+                <img src="{{ $article->image->url() }}" class="img-responsive" alt="{{ $article->image->alt_text }}" style="max-height: 60rem; min-height: 10rem">
             </a>
         </div>
     @endif

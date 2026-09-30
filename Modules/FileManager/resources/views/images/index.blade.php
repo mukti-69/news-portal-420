@@ -92,7 +92,7 @@
                                     <tr>
                                         <td>{{ $image->id }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/' . $image->file_path) }}" alt="{{ $image->alt_text }}" width="100px" style="max-height: 90px">
+                                            <img src="{{ $image->url() }}" alt="{{ $image->alt_text }}" width="100px" style="max-height: 90px">
                                         </td>
                                         <td>{{ $image->file_path }}</td>
                                         <td>{{ nullable_value($image->alt_text) }}</td>

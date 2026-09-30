@@ -8,9 +8,25 @@ use Illuminate\Support\Str;
 
 class FileManager
 {
-    public static function upload(UploadedFile $file, string $disk = 'public'): false|string
+    /**
+     * The disk that image uploads are stored on and served from.
+     *
+     * Uses Cloudinary when it's configured (CLOUDINARY_CLOUD_NAME set in .env)
+     * so uploads survive redeploys/restarts on hosts with ephemeral disk
+     * storage (e.g. Render). Falls back to the local 'public' disk when
+     * Cloudinary isn't configured, so local development keeps working with
+     * no setup. This is the single source of truth for which disk is
+     * "active" - Image::uri() reads the same value, so uploads and the
+     * URLs generated for them always agree on where the file actually is.
+     */
+    public static function activeDisk(): string
     {
-        return Storage::disk($disk)->putFileAs(
+        return filled(config('filesystems.disks.cloudinary.cloud_name')) ? 'cloudinary' : 'public';
+    }
+
+    public static function upload(UploadedFile $file, ?string $disk = null): false|string
+    {
+        return Storage::disk($disk ?? self::activeDisk())->putFileAs(
             self::generateFilePath(),
             $file,
             self::generateFilename($file)
@@ -43,7 +59,7 @@ class FileManager
         $filename = pathinfo($filePath, PATHINFO_BASENAME);
         $destinationPath = self::generateFilePath();
 
-        return Storage::disk('public')->putFileAs(
+        return Storage::disk(self::activeDisk())->putFileAs(
             $destinationPath,
             $filePath,
             $filename
@@ -52,8 +68,8 @@ class FileManager
 
     public static function delete(string $filePath): bool
     {
-        if (Storage::disk('public')->exists($filePath)) {
-            return Storage::disk('public')->delete($filePath);
+        if (Storage::disk(self::activeDisk())->exists($filePath)) {
+            return Storage::disk(self::activeDisk())->delete($filePath);
         }
 
         return false;
@@ -64,7 +80,7 @@ class FileManager
         $filePathWithoutName = pathinfo($filePath, PATHINFO_DIRNAME);
         $fileBaseName = pathinfo($filePath, PATHINFO_BASENAME);
 
-        return Storage::disk('public')->putFileAs(
+        return Storage::disk(self::activeDisk())->putFileAs(
             $filePathWithoutName,
             $newFile,
             $fileBaseName

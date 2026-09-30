@@ -56,7 +56,7 @@
                             <tr>
                                 <td>{{ $article->id }}</td>
                                 <td>
-                                    <img src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->alt_text }}" width="100px" style="max-height: 90px">
+                                    <img src="{{ $article->image->url() }}" alt="{{ $article->image->alt_text }}" width="100px" style="max-height: 90px">
                                 </td>
                                 <td>{{ $article->title }}</td>
                                 <td>{{ $article->slug }}</td>

@@ -127,7 +127,7 @@ class Comment extends Model
     {
         return $this->isGuest() ?
             config('user.default_profile_picture.file_link') :
-            asset('storage/'.$this->commenter->image->file_path);
+            $this->commenter->image->url();
     }
 
     public function getStatus(): string

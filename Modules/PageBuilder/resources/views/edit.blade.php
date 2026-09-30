@@ -61,8 +61,8 @@
                             </div>
                             <div class="form-group col-12 text-center">
                                 @if($page->image)
-                                    <img class="mb-2" src="{{ asset('storage/' . $page->image->file_path) }}" alt="{{ $page->image->alt_text }}" style="max-width: 300px; max-height: 300px">
-                                    <div>{{ asset('storage/' . $page->image->file_path) }}</div>
+                                    <img class="mb-2" src="{{ $page->image->url() }}" alt="{{ $page->image->alt_text }}" style="max-width: 300px; max-height: 300px">
+                                    <div>{{ $page->image->url() }}</div>
                                 @endif
                             </div>
                             <div class="col-12 text-center form-group">

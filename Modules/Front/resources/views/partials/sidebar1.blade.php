@@ -7,7 +7,7 @@
                     <a
                         href="{{ $first_sidebar['articles_with_most_visits']['first']->getUrl() }}">
                         <img class="img-responsive"
-                             src="{{ asset('storage/' . $first_sidebar['articles_with_most_visits']['first']->image->file_path) }}"
+                             src="{{ $first_sidebar['articles_with_most_visits']['first']->image->url() }}"
                              alt="{{ $first_sidebar['articles_with_most_visits']['first']->image->alt_text }}" style="height: 226px">
                     </a>
                 </div>
@@ -34,7 +34,7 @@
                             <div class="post-block-style post-float clearfix">
                                 <div class="post-thumb">
                                     <a href="{{ $article->getUrl() }}">
-                                        <img class="img-responsive" src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->alt_text }}" style="height: 75px">
+                                        <img class="img-responsive" src="{{ $article->image->url() }}" alt="{{ $article->image->alt_text }}" style="height: 75px">
                                     </a>
                                     <a class="post-cat" href="{{ route('categories.show', $article->category->slug) }}">{{ $article->category->name }}</a>
                                 </div><!-- Post thumb end -->

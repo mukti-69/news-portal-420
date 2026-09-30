@@ -52,6 +52,17 @@ return [
             'throw' => false,
         ],
 
+        'cloudinary' => [
+            'driver' => 'cloudinary',
+            'api_key' => env('CLOUDINARY_API_KEY'),
+            'api_secret' => env('CLOUDINARY_API_SECRET'),
+            'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
+            'secure' => env('CLOUDINARY_SECURE', true),
+            'resource_types' => [
+                'image' => ['png', 'jpeg', 'jpg', 'gif', 'webp', 'svg', 'ico'],
+            ],
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

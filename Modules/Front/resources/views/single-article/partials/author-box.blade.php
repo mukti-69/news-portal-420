@@ -1,7 +1,7 @@
 <div class="author-box">
     <div class="author-img pull-left">
         <a href="{{ route('author.index', $article->user->username) }}">
-            <img src="{{ asset('storage/' . $article->user->image->file_path) }}" alt="{{ $article->user->image->alt_text }}">
+            <img src="{{ $article->user->image->url() }}" alt="{{ $article->user->image->alt_text }}">
         </a>
     </div>
     <div class="author-info">

@@ -48,7 +48,7 @@ class SiteDetail extends Model
     public function getLogo($relation): string
     {
         return $relation ?
-            asset('storage/'.$relation->file_path) :
+            $relation->url() :
             config('common.default_logo.file_link');
     }
 
