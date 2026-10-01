@@ -1,0 +1,75 @@
+services:
+  - type: web
+    name: khulna-face
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: APP_NAME
+        value: "Khulna Face"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      # Generate once with: php -r "echo 'base64:'.base64_encode(random_bytes(32));"
+      # Must stay the same across restarts/redeploys, or every session and
+      # any encrypted data breaks - never let anything auto-generate this.
+      - key: APP_KEY
+        sync: false
+      # Set this to the real https://<service-name>.onrender.com URL after
+      # the first deploy (or a custom domain once one is attached).
+      - key: APP_URL
+        sync: false
+      - key: LOG_CHANNEL
+        value: stack
+      - key: LOG_LEVEL
+        value: error
+
+      # Aiven MySQL - copy these from the Aiven service overview page
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+
+      # database, not file: Render's local disk is ephemeral, so file-based
+      # sessions/cache would reset (logging everyone out) on every redeploy
+      - key: CACHE_DRIVER
+        value: database
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_LIFETIME
+        value: "120"
+      - key: QUEUE_CONNECTION
+        value: sync
+
+      # Local disk fallback only - actual uploads go to Cloudinary below
+      - key: FILESYSTEM_DISK
+        value: local
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: CLOUDINARY_SECURE
+        value: "true"
+
+      # First-run admin account (see database/seeders/ProductionSeeder.php)
+      - key: ADMIN_FULL_NAME
+        value: Admin
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: REGISTRATION_ENABLED
+        value: "false"
