@@ -27,7 +27,7 @@
                                         <div class="post-block-style clearfix">
                                             <div class="post-thumb">
                                                 <a href="{{ $first_article->getUrl() }}">
-                                                    <img class="img-responsive" src="{{ asset('storage/' . $first_article->image->file_path) }}" alt="{{ $first_article->image->alt_text }}"
+                                                    <img class="img-responsive" src="{{ $first_article->image->url() }}" alt="{{ $first_article->image->alt_text }}"
                                                          style="max-height: 20rem; object-fit: cover">
                                                 </a>
                                             </div>
@@ -54,7 +54,7 @@
                                                         <div class="post-block-style post-float clearfix">
                                                             <div class="post-thumb">
                                                                 <a href="{{ $article->getUrl() }}">
-                                                                    <img class="img-responsive" src="{{ asset('storage/' . $article->image->file_path) }}"
+                                                                    <img class="img-responsive" src="{{ $article->image->url() }}"
                                                                          alt="{{ $article->image->alt_text }}" style="max-height: 10rem;">
                                                                 </a>
                                                             </div><!-- Post thumb end -->

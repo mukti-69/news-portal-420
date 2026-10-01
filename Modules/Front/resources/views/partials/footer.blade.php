@@ -11,7 +11,7 @@
                                     <div class="post-block-style post-float clearfix">
                                         <div class="post-thumb">
                                             <a href="{{ $editor_choice->getUrl() }}">
-                                                <img class="img-responsive" src="{{ asset('storage/' . $editor_choice->image->file_path) }}" alt="{{ $editor_choice->image->alt_text }}">
+                                                <img class="img-responsive" src="{{ $editor_choice->image->url() }}" alt="{{ $editor_choice->image->alt_text }}">
                                             </a>
                                         </div><!-- Post thumb end -->
 
@@ -56,7 +56,7 @@
                                         <div class="post-block-style post-float clearfix">
                                             <div class="post-thumb">
                                                 <a href="{{ $article->getUrl() }}">
-                                                    <img class="img-responsive" src="{{ asset('storage/' . $article->image->file_path) }}" alt="{{ $article->image->alt_text }}">
+                                                    <img class="img-responsive" src="{{ $article->image->url() }}" alt="{{ $article->image->alt_text }}">
                                                 </a>
                                             </div><!-- Post thumb end -->
 

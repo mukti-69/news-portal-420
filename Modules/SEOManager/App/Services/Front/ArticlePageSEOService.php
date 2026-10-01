@@ -26,7 +26,7 @@ class ArticlePageSEOService extends BaseSEOService
             $keywords = ! empty($seoSetting?->keywords) ? explode(',', $seoSetting->keywords) : $tags;
             $authorName = $seoSetting?->meta_author ?? $user->full_name;
             $authorUrl = route('author.index', $user->username);
-            $imageUrl = asset('storage/'.$article->image->file_path);
+            $imageUrl = $article->image->url();
 
             return compact('title', 'description', 'articleUrl', 'canonicalUrl', 'robots', 'keywords', 'authorName', 'authorUrl', 'imageUrl', 'tags', 'category');
         });

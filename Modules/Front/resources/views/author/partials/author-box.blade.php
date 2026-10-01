@@ -1,6 +1,6 @@
 <div class="author-box">
     <div class="author-img pull-left">
-        <img src="{{ asset('storage/' . $author->image->file_path) }}" alt="{{ $author->image->alt_text }}">
+        <img src="{{ $author->image->url() }}" alt="{{ $author->image->alt_text }}">
     </div>
     <div class="author-info">
         <h3>{{ $author->full_name }}</h3>

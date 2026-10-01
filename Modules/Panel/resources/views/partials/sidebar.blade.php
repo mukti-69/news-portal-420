@@ -3,7 +3,7 @@
     <div class="sidebar-top">
         <div class="user-box">
             <a href="{{ route(config('app.panel_prefix', 'panel') . '.profile.edit') }}">
-                <img src="{{ asset('storage/' . $currentUser->image->file_path) }}" alt="{{ $currentUser->image->alt_text }}"
+                <img src="{{ $currentUser->image->url() }}" alt="{{ $currentUser->image->alt_text }}"
                      class="object-fit-cover img-circle" style="width: 70px; height: 70px">
             </a>
             <div class="user-details">

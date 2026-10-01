@@ -8,7 +8,7 @@
                     <div class="post-thumb">
                         <a href="{{ route('categories.show', $category->slug) }}">
                             @if($category->image)
-                                <img class="img-responsive" src="{{ asset('storage/' . $category->image->file_path) }}" alt="{{ $category->image->alt_text }}" style="height: 240px">
+                                <img class="img-responsive" src="{{ $category->image->url() }}" alt="{{ $category->image->alt_text }}" style="height: 240px">
                             @endif
                         </a>
                     </div>

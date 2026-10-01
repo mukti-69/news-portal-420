@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Scout\Searchable;
+use Modules\FileManager\App\Services\FileManager;
 use Modules\User\App\Models\User;
 
 class Image extends Model
@@ -61,12 +63,7 @@ class Image extends Model
 
     public function url(): string
     {
-        return asset($this->uri());
-    }
-
-    public function uri(): string
-    {
-        return '/storage/'.$this->file_path;
+        return Storage::disk(FileManager::activeDisk())->url($this->file_path);
     }
 
     public function imageable(): MorphTo

@@ -74,7 +74,7 @@
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>
-                                        <img class="rounded-circle object-fit-cover" src="{{ asset('storage/' . $user->image?->file_path) }}" alt="{{ $user->image?->alt_text }}"
+                                        <img class="rounded-circle object-fit-cover" src="{{ $user->image?->url() }}" alt="{{ $user->image?->alt_text }}"
                                              width="70px" height="70px">
                                     </td>
                                     <td>{{ $user->full_name }}</td>

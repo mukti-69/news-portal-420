@@ -12,7 +12,7 @@
                                     <div class="post-block-style clearfix">
                                         <div class="post-thumb">
                                             <a href="{{ $ad->link }}">
-                                                <img class="img-responsive" src="{{ asset('storage/' . $ad->image->file_path) }}" alt="{{ $ad->image->alt_text }}"
+                                                <img class="img-responsive" src="{{ $ad->image->url() }}" alt="{{ $ad->image->alt_text }}"
                                                      style="max-height: 15rem; min-height: 10rem">
                                             </a>
                                         </div>

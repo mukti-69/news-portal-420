@@ -43,7 +43,7 @@
                                                                     <div class="post-block-style clearfix">
                                                                         <div class="post-thumb">
                                                                             <a href="{{ $article->getUrl() }}l">
-                                                                                <img class="img-responsive nav-parent-cat-post-img" src="{{ asset('storage/' . $article->image->file_path) }}"
+                                                                                <img class="img-responsive nav-parent-cat-post-img" src="{{ $article->image->url() }}"
                                                                                      alt="{{ $article->image->alt_text }}">
                                                                             </a>
                                                                         </div>
@@ -77,7 +77,7 @@
                                                     <div class="col-md-3">
                                                         <div class="post-block-style clearfix">
                                                             <div class="post-thumb">
-                                                                <img class="img-responsive nav-cat-post-img" src="{{ asset('storage/' . $article->image->file_path) }}"
+                                                                <img class="img-responsive nav-cat-post-img" src="{{ $article->image->url() }}"
                                                                      alt="{{ $article->image->alt_text }}">
                                                             </div><!-- Post thumb end -->
                                                             <div class="post-content">

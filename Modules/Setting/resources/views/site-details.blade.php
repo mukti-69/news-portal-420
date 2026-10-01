@@ -85,9 +85,9 @@
                                 </div>
                                 @if($siteDetails?->mainLogo)
                                     <div class="form-group col-12 text-center">
-                                        <img class="mb-2" src="{{ asset('storage/' . $siteDetails?->mainLogo->file_path) }}" alt="{{ $siteDetails?->mainLogo->alt_text }}">
+                                        <img class="mb-2" src="{{ $siteDetails?->mainLogo->url() }}" alt="{{ $siteDetails?->mainLogo->alt_text }}">
                                         <div>
-                                            {{ asset('storage/' . $siteDetails?->mainLogo->file_path) }}
+                                            {{ $siteDetails?->mainLogo->url() }}
                                         </div>
                                     </div>
                                 @endif
@@ -109,9 +109,9 @@
                                 </div>
                                 @if($siteDetails?->secondLogo)
                                     <div class="form-group col-12 text-center">
-                                        <img class="mb-2" src="{{ asset('storage/' . $siteDetails?->secondLogo->file_path) }}" alt="{{ $siteDetails?->secondLogo->alt_text }}">
+                                        <img class="mb-2" src="{{ $siteDetails?->secondLogo->url() }}" alt="{{ $siteDetails?->secondLogo->alt_text }}">
                                         <div>
-                                            {{ asset('storage/' . $siteDetails?->secondLogo->file_path) }}
+                                            {{ $siteDetails?->secondLogo->url() }}
                                         </div>
                                     </div>
                                 @endif
@@ -133,9 +133,9 @@
                                 </div>
                                 @if($siteDetails?->favicon)
                                     <div class="form-group col-12 text-center">
-                                        <img class="mb-2" src="{{ asset('storage/' . $siteDetails?->favicon->file_path) }}" alt="{{ $siteDetails?->favicon->alt_text }}">
+                                        <img class="mb-2" src="{{ $siteDetails?->favicon->url() }}" alt="{{ $siteDetails?->favicon->alt_text }}">
                                         <div>
-                                            {{ asset('storage/' . $siteDetails?->favicon->file_path) }}
+                                            {{ $siteDetails?->favicon->url() }}
                                         </div>
                                     </div>
                                 @endif
