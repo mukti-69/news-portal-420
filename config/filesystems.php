@@ -41,7 +41,11 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-            'throw' => false,
+            // true, not false: a silently-swallowed write failure here (or on
+            // the cloudinary disk below) just shows up as a generic "Failed
+            // to upload" with no real reason anywhere in the logs. Let the
+            // actual underlying error surface instead.
+            'throw' => true,
         ],
 
         'media_videos' => [
@@ -58,6 +62,7 @@ return [
             'api_secret' => env('CLOUDINARY_API_SECRET'),
             'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
             'secure' => env('CLOUDINARY_SECURE', true),
+            'throw' => true,
             'resource_types' => [
                 'image' => ['png', 'jpeg', 'jpg', 'gif', 'webp', 'svg', 'ico'],
             ],
