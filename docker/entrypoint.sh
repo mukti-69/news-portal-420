@@ -13,7 +13,17 @@ fi
 php artisan config:clear
 
 echo "Running database migrations..."
-php artisan migrate --force
+if [ "$MIGRATE_FRESH" = "true" ]; then
+    echo "MIGRATE_FRESH=true - wiping all tables and re-running migrations from"
+    echo "scratch. This is a one-time escape hatch for a database left in a"
+    echo "partial/broken state by an earlier failed deploy - it destroys all"
+    echo "data. Remove the MIGRATE_FRESH env var in Render right after this"
+    echo "deploy succeeds, before any real content/users exist, or the next"
+    echo "redeploy will wipe them too."
+    php artisan migrate:fresh --force
+else
+    php artisan migrate --force
+fi
 
 echo "Seeding roles/admin account/site defaults (idempotent, safe to re-run)..."
 php artisan db:seed --class="Database\Seeders\ProductionSeeder" --force
