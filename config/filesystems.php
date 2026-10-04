@@ -58,9 +58,13 @@ return [
 
         'cloudinary' => [
             'driver' => 'cloudinary',
-            'api_key' => env('CLOUDINARY_API_KEY'),
-            'api_secret' => env('CLOUDINARY_API_SECRET'),
-            'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
+            // trim(): a value pasted into a host's env var panel (especially
+            // from a mobile browser) can easily pick up a leading/trailing
+            // space or newline that's invisible in the UI but makes
+            // Cloudinary reject an otherwise-correct value outright.
+            'api_key' => trim((string) env('CLOUDINARY_API_KEY')),
+            'api_secret' => trim((string) env('CLOUDINARY_API_SECRET')),
+            'cloud_name' => trim((string) env('CLOUDINARY_CLOUD_NAME')),
             'secure' => env('CLOUDINARY_SECURE', true),
             'throw' => true,
             'resource_types' => [
