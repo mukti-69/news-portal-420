@@ -12,6 +12,16 @@ fi
 
 php artisan config:clear
 
+if [ -n "$CLOUDINARY_CLOUD_NAME" ]; then
+    masked_key=$(echo "$CLOUDINARY_API_KEY" | sed -E 's/^(.{3}).*(.{3})$/\1...\2/')
+    echo "Cloudinary configured: cloud_name='${CLOUDINARY_CLOUD_NAME}' api_key='${masked_key}'"
+    echo "(cloud_name is not secret - if this doesn't exactly match the 'Cloud"
+    echo "name' shown on your Cloudinary dashboard, fix the CLOUDINARY_CLOUD_NAME"
+    echo "env var in Render before anything below this line is worth debugging.)"
+else
+    echo "CLOUDINARY_CLOUD_NAME is not set - uploads will use local disk storage."
+fi
+
 echo "Running database migrations..."
 if [ "$MIGRATE_FRESH" = "true" ]; then
     echo "MIGRATE_FRESH=true - wiping all tables and re-running migrations from"
