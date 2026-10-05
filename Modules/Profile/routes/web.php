@@ -10,22 +10,22 @@ Route::prefix(config('app.panel_prefix', 'panel').'/profile')->name(config('app.
 
     Route::prefix('')->name('edit')->controller(ProfileController::class)->group(function () {
         Route::get('/', 'edit');
-        Route::patch('/', 'update');
+        Route::patch('/', 'update')->name('.store');
     });
 
     Route::prefix('email/change')->name('email.change')->controller(ChangeEmailController::class)->group(function () {
         Route::get('/', 'changeEmailView');
-        Route::patch('/', 'sendChangeEmailVerification');
+        Route::patch('/', 'sendChangeEmailVerification')->name('.store');
         Route::get('/verify', 'verifyChangeEmail')->name('.verify')->middleware('signed');
     });
 
     Route::prefix('password/change')->name('password.change')->controller(ChangePasswordController::class)->group(function () {
         Route::get('/', 'changePasswordView');
-        Route::patch('/', 'changePassword');
+        Route::patch('/', 'changePassword')->name('.store');
     });
 
     Route::prefix('social-networks')->name('social-networks.edit')->controller(SocialNetworkController::class)->group(function () {
         Route::get('/', 'edit');
-        Route::put('/', 'update');
+        Route::put('/', 'update')->name('.store');
     });
 });
