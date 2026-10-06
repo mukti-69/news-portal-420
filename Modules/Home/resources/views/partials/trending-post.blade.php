@@ -25,24 +25,26 @@
 
             <div class="col-md-5 col-xs-12 pad-l">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="post-overlay-style contentTop hot-post-top clearfix">
-                            <div class="post-thumb">
-                                <a href="{{ $trending_posts['first_editor_choice']->getUrl() }}">
-                                    <img class="img-responsive" src="{{ $trending_posts['first_editor_choice']->image->url() }}"
-                                         alt="{{ $trending_posts['first_editor_choice']->image->alt_text }}">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <a class="post-cat"
-                                   href="{{ route('categories.show', $trending_posts['first_editor_choice']->category->slug) }}">{{ $trending_posts['first_editor_choice']->category->name }}</a>
-                                <h2 class="post-title title-large">
-                                    <a href="{{ $trending_posts['first_editor_choice']->getUrl() }}">{{ $trending_posts['first_editor_choice']->title }}</a>
-                                </h2>
-                                <span class="post-date">{{ jalalian()->forge($trending_posts['first_editor_choice']->created_at)->format(config('common.front_date_format')) }}</span>
-                            </div><!-- Post content end -->
-                        </div><!-- Post overlay end -->
-                    </div><!-- Col end -->
+                    @if($trending_posts['first_editor_choice'] !== null)
+                        <div class="col-sm-12">
+                            <div class="post-overlay-style contentTop hot-post-top clearfix">
+                                <div class="post-thumb">
+                                    <a href="{{ $trending_posts['first_editor_choice']->getUrl() }}">
+                                        <img class="img-responsive" src="{{ $trending_posts['first_editor_choice']->image->url() }}"
+                                             alt="{{ $trending_posts['first_editor_choice']->image->alt_text }}">
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <a class="post-cat"
+                                       href="{{ route('categories.show', $trending_posts['first_editor_choice']->category->slug) }}">{{ $trending_posts['first_editor_choice']->category->name }}</a>
+                                    <h2 class="post-title title-large">
+                                        <a href="{{ $trending_posts['first_editor_choice']->getUrl() }}">{{ $trending_posts['first_editor_choice']->title }}</a>
+                                    </h2>
+                                    <span class="post-date">{{ jalalian()->forge($trending_posts['first_editor_choice']->created_at)->format(config('common.front_date_format')) }}</span>
+                                </div><!-- Post content end -->
+                            </div><!-- Post overlay end -->
+                        </div><!-- Col end -->
+                    @endif
 
                     @php($editor_choice_direction = collect(['r', 'l']))
                     @foreach($trending_posts['editor_choices'] as $editor_choice)
