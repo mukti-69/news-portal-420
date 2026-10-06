@@ -39,6 +39,11 @@ services:
       - key: DB_PASSWORD
         sync: false
 
+      # Aiven MySQL SSL Configuration
+      # Note: ca.pem file must be provided via Render's Secret Files
+      - key: MYSQL_ATTR_SSL_VERIFY_SERVER_CERT
+        value: "false"
+
       # database, not file: Render's local disk is ephemeral, so file-based
       # sessions/cache would reset (logging everyone out) on every redeploy
       - key: CACHE_DRIVER
@@ -47,12 +52,15 @@ services:
         value: database
       - key: SESSION_LIFETIME
         value: "120"
+      # HTTPS-only session cookies for security
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
       - key: QUEUE_CONNECTION
         value: sync
 
-      # Local disk fallback only - actual uploads go to Cloudinary below
+      # Use Cloudinary if credentials are provided; otherwise local fallback
       - key: FILESYSTEM_DISK
-        value: local
+        value: cloudinary
       - key: CLOUDINARY_CLOUD_NAME
         sync: false
       - key: CLOUDINARY_API_KEY
