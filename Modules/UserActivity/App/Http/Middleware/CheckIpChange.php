@@ -18,9 +18,19 @@ class CheckIpChange
             return $next($request);
         }
 
-        $currentIp = $request->ip();
+        $currentIp = (string) $request->ip();
         $userTrack = $user->userTracks()->latest()->first();
-        if ($userTrack?->ip !== $currentIp) {
+        if ($userTrack && $userTrack->ip !== null && $userTrack->ip !== $currentIp) {
+            // Mobile networks rotate IPs often on the same device. Only force
+            // logout when the device also changed (likely session hijack).
+            // Same device + new IP (e.g. mobile data) stays logged in.
+            $trackedAgent = (string) ($userTrack->user_agent ?? '');
+            $currentAgent = (string) $request->userAgent();
+            // Same device (same browser) + any IP = stay logged in.
+            // Mobile data rotates IPs; only a different device forces logout.
+            if ($trackedAgent !== '' && $trackedAgent === $currentAgent) {
+                return $next($request);
+            }
             Auth::logout();
 
             return to_route('login')->withErrors(__('Your IP address has changed, please login again.'));
