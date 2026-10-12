@@ -20,6 +20,16 @@ class UserHelper
         DB::beginTransaction();
 
         try {
+            $existing = User::getFirstAdmin();
+            if ($existing) {
+                self::syncAdminCredentials($existing);
+                $admin_role = Role::query()->where('name', Role::ADMIN)->first();
+                if ($admin_role) {
+                    $existing->syncRoles($admin_role);
+                }
+                DB::commit();
+                return;
+            }
             $admin_user = self::createAdminUser();
             $admin_role = Role::query()->where('name', Role::ADMIN)->first();
             $admin_user->syncRoles($admin_role);
@@ -27,6 +37,32 @@ class UserHelper
         } catch (Exception $e) {
             DB::rollBack();
             throw new UserCreationFailedException($e->getMessage());
+        }
+    }
+
+    /**
+     * Sync an existing admin's login with ADMIN_EMAIL / ADMIN_PASSWORD
+     * from .env on every deploy. Skips silently when env is empty so a
+     * redeploy never breaks a working login.
+     */
+    public static function syncAdminCredentials(Model $admin): void
+    {
+        $email = (string) config('user.admin_email', '');
+        $password = (string) config('user.admin_password', '');
+
+        if ($email !== '' && $email !== $admin->email) {
+            $taken = User::query()->where('email', $email)->where('id', '!=', $admin->id)->exists();
+            if (! $taken) {
+                $admin->email = $email;
+            }
+        }
+
+        if ($password !== '' && strlen($password) >= 8 && ! Hash::check($password, (string) $admin->password)) {
+            $admin->password = Hash::make($password);
+        }
+
+        if ($admin->isDirty()) {
+            $admin->save();
         }
     }
 
