@@ -18,19 +18,39 @@ class RequestTrack extends Model
         'tag',
     ];
 
+    /** User-agents that must never inflate public view counters. */
+    public static array $botPatterns = [
+        '%bot%', '%crawl%', '%spider%', '%slurp%',
+        '%uptimerobot%', '%uptime%', '%monitor%', '%pingdom%',
+    ];
+
+    protected static function humanQuery()
+    {
+        return self::whereNotExists(function ($q) {
+            $q->selectRaw('1')
+                ->from('user_tracks')
+                ->whereColumn('user_tracks.id', 'request_tracks.user_track_id')
+                ->where(function ($w) {
+                    foreach (self::$botPatterns as $p) {
+                        $w->orWhere('user_tracks.user_agent', 'LIKE', $p);
+                    }
+                });
+        });
+    }
+
     public static function getVisitCounts(): array
     {
         $now = Carbon::now();
 
-        $hourCount = self::where('created_at', '>=', $now->subHour())->count();
-        $tenHoursCount = self::where('created_at', '>=', $now->subHours(10))->count();
-        $dayCount = self::where('created_at', '>=', $now->subDay())->count();
+        $hourCount = self::humanQuery()->where('request_tracks.created_at', '>=', $now->copy()->subHour())->count();
+        $tenHoursCount = self::humanQuery()->where('request_tracks.created_at', '>=', $now->copy()->subHours(10))->count();
+        $dayCount = self::humanQuery()->where('request_tracks.created_at', '>=', $now->copy()->subDay())->count();
 
-        $weekCount = self::where('created_at', '>=', $now->subWeek())->count();
-        $monthCount = self::where('created_at', '>=', $now->subMonth())->count();
-        $yearCount = self::where('created_at', '>=', $now->subYear())->count();
+        $weekCount = self::humanQuery()->where('request_tracks.created_at', '>=', $now->copy()->subWeek())->count();
+        $monthCount = self::humanQuery()->where('request_tracks.created_at', '>=', $now->copy()->subMonth())->count();
+        $yearCount = self::humanQuery()->where('request_tracks.created_at', '>=', $now->copy()->subYear())->count();
 
-        $allCount = self::count();
+        $allCount = self::humanQuery()->count();
 
         return [
             'hourly' => $hourCount,

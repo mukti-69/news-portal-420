@@ -39,6 +39,25 @@
     <script src="{{ asset('admin/assets/plugins/morris.js/morris.min.js') }}"></script>
     <script>
         $(".counter-down").incrementalCounter({digits: 'auto'});
+        // Force Bengali digits so Persian (fa) digits never show under charts.
+        (function () {
+            var fa = '۰۱۲۳۴۵۶۷۸۹', bn = '০১২৩৪৫৬৭৮৯', en = '0123456789';
+            function toBn(s) {
+                return String(s).split('').map(function (ch) {
+                    var i = fa.indexOf(ch);
+                    if (i > -1) return bn[i];
+                    return ch;
+                }).join('').replace(/[0-9]/g, function (d) { return bn[en.indexOf(d)]; });
+            }
+            document.querySelectorAll('#site-visits-yearly text, #site-visits-daily text, #articles-visits-yearly text, #articles-visits-daily text').forEach(function (el) {
+                el.textContent = toBn(el.textContent);
+            });
+            setTimeout(function () {
+                document.querySelectorAll('#site-visits-yearly text, #site-visits-daily text, #articles-visits-yearly text, #articles-visits-daily text').forEach(function (el) {
+                    el.textContent = toBn(el.textContent);
+                });
+            }, 1500);
+        })();
     </script>
     <script>
         Morris.Donut({

@@ -63,7 +63,18 @@ class Image extends Model
 
     public function url(): string
     {
-        return Storage::disk(FileManager::activeDisk())->url($this->file_path);
+        $disk = FileManager::activeDisk();
+        // Old uploads live on 'public', new ones on cloudinary.
+        // Fall back so old images keep showing after Cloudinary is enabled.
+        if (Storage::disk($disk)->exists($this->file_path)) {
+            return Storage::disk($disk)->url($this->file_path);
+        }
+        $fallback = $disk === 'cloudinary' ? 'public' : 'cloudinary';
+        if (Storage::disk($fallback)->exists($this->file_path)) {
+            return Storage::disk($fallback)->url($this->file_path);
+        }
+
+        return Storage::disk($disk)->url($this->file_path);
     }
 
     public function imageable(): MorphTo
