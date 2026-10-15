@@ -18,6 +18,16 @@ class CheckIpChange
             return $next($request);
         }
 
+        // Admin bypass: editors switch WiFi/mobile data often - don't force logout
+        if (method_exists($user, 'isAdmin') && $user->isAdmin()) {
+            return $next($request);
+        }
+
+        // Global toggle via .env (CHECK_IP_CHANGE=false to disable for all)
+        if (! config('useractivity.check_ip_change', true)) {
+            return $next($request);
+        }
+
         $currentIp = (string) $request->ip();
         $userTrack = $user->userTracks()->latest()->first();
         if ($userTrack && $userTrack->ip !== null && $userTrack->ip !== $currentIp) {
